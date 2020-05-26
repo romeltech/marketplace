@@ -74,13 +74,13 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="nav justify-content-end">
                             <li class="nav-item">
-                                <a class="nav-link active text-dark" href="#">Home</a>
+                                <a class="nav-link active text-dark" href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">About</a>
+                                <a class="nav-link text-dark" href="{{ route('about') }}">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Contact us</a>
+                                <a class="nav-link text-dark" href="{{ route('contact') }}">Contact us</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="#">Cart</a>
