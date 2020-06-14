@@ -18,7 +18,7 @@
         <div class="col-md-6 col-sm-12">
             <div class="product-grid5">
                 <div class="product-content">
-                    <h3 class="title"><a href="#">{{ $product->title }}</a></h3>
+                    <h1 class="title">{{ $product->title }}</h1>
                     <p>{{ $product->description }}</p>
                 </div>
             </div>

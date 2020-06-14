@@ -19,3 +19,11 @@ Route::get('/about', 'PublicPagesController@about')->name('about');
 Route::get('/contact', 'PublicPagesController@contact')->name('contact');
 Route::get('/products', 'PublicPagesController@products')->name('products');
 Route::get('/product/{product:slug}', 'PublicPagesController@product')->name('product');
+
+Route::group(['prefix'=>'buyer','as'=>'buyer.'], function(){
+    Route::get('/dashboard', 'BuyerController@dashboard')->name('dashboard');
+    Route::get('/orders', 'BuyerController@orders')->name('orders');
+    Route::get('/inquiries', 'BuyerController@inquiries')->name('inquiries');
+    Route::get('/messages', 'BuyerController@messages')->name('messages');
+    Route::get('/account-settings', 'BuyerController@accountSettings')->name('account-settings');
+});
