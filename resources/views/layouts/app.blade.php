@@ -16,12 +16,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
         <header>
-            <nav class="top-nav navbar navbar-dark bg-dark">
+            <nav class="top-nav navbar navbar-dark bg-dark py-0">
                 <div class="container">
                     <ul class="nav ml-auto justify-content-end">
                         <!-- Authentication Links -->
@@ -60,8 +61,9 @@
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="https://aboudcrm.com/store/wp-content/uploads/2020/04/olive-country.png"
-                            alt="Olive Country" width="100">
+                        MARKETPLACE
+                        {{-- <img src="https://aboudcrm.com/store/wp-content/uploads/2020/04/olive-country.png"
+                            alt="Olive Country" width="100"> --}}
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -77,13 +79,13 @@
                                 <a class="nav-link active text-dark" href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link text-dark" href="{{ route('products') }}">Products</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" href="{{ route('about') }}">About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="{{ route('contact') }}">Contact us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="#">Cart</a>
                             </li>
                         </ul>
                     </div>
@@ -91,9 +93,18 @@
             </nav>
         </header>
 
-        <main class="py-4">
+        <main class="py-4" style="min-height:85vh;">
             @yield('content')
         </main>
+        <footer class="bg-dark p-3">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <span class="text-white">
+                        Copyright 2020 @ MARKETPLACE
+                    </span>
+                </div>
+            </div>
+        </footer>
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

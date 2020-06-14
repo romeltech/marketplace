@@ -17,3 +17,5 @@ Auth::routes();
 Route::get('/', 'PublicPagesController@home')->name('home');
 Route::get('/about', 'PublicPagesController@about')->name('about');
 Route::get('/contact', 'PublicPagesController@contact')->name('contact');
+Route::get('/products', 'PublicPagesController@products')->name('products');
+Route::get('/product/{product:slug}', 'PublicPagesController@product')->name('product');
