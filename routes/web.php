@@ -27,3 +27,8 @@ Route::group(['prefix'=>'buyer','as'=>'buyer.'], function(){
     Route::get('/messages', 'BuyerController@messages')->name('messages');
     Route::get('/account-settings', 'BuyerController@accountSettings')->name('account-settings');
 });
+
+Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
+    Route::get('/dashboard', 'SellerController@dashboard')->name('dashboard');
+    Route::get('/products', 'SellerController@products')->name('products');
+});

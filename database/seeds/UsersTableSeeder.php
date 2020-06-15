@@ -8,6 +8,15 @@ class UsersTableSeeder extends Seeder
      * Run the database seeds.
      *
      * @return void
+     * 
+     * User Roles
+     * 1 superadmin
+     * 2 administrator
+     * 3 editor
+     * 4 buyer
+     * 5 reseller/supplier
+     * 6 both: buy/supplier
+     * 7 Delivery Boy
      */
     public function run()
     {
@@ -20,17 +29,35 @@ class UsersTableSeeder extends Seeder
         ]);
         $user->save();
         $user = new \App\User([
-            'name'     => 'Test Account',
+            'name'     => 'Buyer Account',
             'email'    => 'test@test.com',
             'password' => Hash::make('123456789'),
-            'phone'    => '05012345678'
+            'phone'    => '05012345678',
+            'role'     => 4
         ]);
         $user->save();
         $user = new \App\User([
-            'name'     => 'zzzzzz',
-            'email'    => 'zzz@zzz.com',
+            'name'     => 'Seller Account',
+            'email'    => 'seller@seller.com',
             'password' => Hash::make('123456789'),
-            'phone'    => '05012345678'
+            'phone'    => '05012345678',
+            'role'     => 5
+        ]);
+        $user->save();
+        $user = new \App\User([
+            'name'     => 'Both Account',
+            'email'    => 'both@both.com',
+            'password' => Hash::make('123456789'),
+            'phone'    => '05012345678',
+            'role'     => 6
+        ]);
+        $user->save();
+        $user = new \App\User([
+            'name'     => 'Delivery Account',
+            'email'    => 'delivery@delivery.com',
+            'password' => Hash::make('123456789'),
+            'phone'    => '05012345678',
+            'role'     => 7
         ]);
         $user->save();
     }
