@@ -29,6 +29,15 @@ Route::group(['prefix'=>'buyer','as'=>'buyer.'], function(){
 });
 
 Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
+    // Pages
+    Route::get('/', 'SellerController@dashboard')->name('dashboard');
     Route::get('/dashboard', 'SellerController@dashboard')->name('dashboard');
     Route::get('/products', 'SellerController@products')->name('products');
+    Route::get('/orders', 'SellerController@orders')->name('orders');
+    Route::get('/inquiries', 'SellerController@inquiries')->name('inquiries');
+    Route::get('/messages', 'SellerController@messages')->name('messages');
+
+    // Actions
+    Route::get('/get-products', 'ProductController@index');
+    Route::get('/product/create', 'ProductController@create');
 });

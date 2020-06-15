@@ -11091,3 +11091,12 @@ a.text-dark:focus {
   }
 }
 
+.pointer {
+  cursor: pointer;
+}
+
+.table th,
+.table td {
+  vertical-align: middle !important;
+}
+
