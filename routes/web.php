@@ -20,6 +20,8 @@ Route::get('/contact', 'PublicPagesController@contact')->name('contact');
 Route::get('/products', 'PublicPagesController@products')->name('products');
 Route::get('/product/{product:slug}', 'PublicPagesController@product')->name('product');
 
+Route::post('/product/store', 'ProductController@store');
+
 Route::group(['prefix'=>'buyer','as'=>'buyer.'], function(){
     Route::get('/dashboard', 'BuyerController@dashboard')->name('dashboard');
     Route::get('/orders', 'BuyerController@orders')->name('orders');
@@ -39,5 +41,5 @@ Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
 
     // Actions
     Route::get('/get-products', 'ProductController@index');
-    Route::get('/product/create', 'ProductController@create');
+    Route::get('/product/create', 'SellerController@create');
 });

@@ -19,10 +19,11 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('description');
-            $table->string('featured_image');
-            $table->integer('price');
+            $table->string('featured_image')->nullable(); 
+            $table->integer('price')->nullable(); 
             $table->integer('sale_price')->nullable();       
             $table->unsignedInteger('author')->nullable();
+            $table->boolean('status')->nullable()->default(true);
         });
     }
     /**

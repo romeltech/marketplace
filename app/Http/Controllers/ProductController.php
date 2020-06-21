@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -26,11 +27,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        return response()->json([
-            'products' => $request,
-        ], 200);
+     
     }
 
     /**
@@ -41,7 +40,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->middleware('auth');
+        $slug = Str::slug($request->title);
+        $request->request->set('slug', $slug);
+        $request->request->set('author', auth()->id());
+
+        $post = Product::create($this->validateRequest());
+        return response()->json([
+            'posts' => $post,
+        ], 200);
     }
 
     /**
@@ -87,5 +94,21 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+        /**
+     * Form Validation
+     */
+    public function validateRequest()
+    {
+        return request()->validate([
+            'title' => ['required', 'min:1', 'max:50', 'string'],
+            'slug' => ['min:1', 'max:50', 'string', 'alpha_dash', 'unique:products'],
+            'status' => [''],
+            'description' => [''],
+            'author' => [''],
+            'featured_image' => ['']
+        ]);
+
     }
 }

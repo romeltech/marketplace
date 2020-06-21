@@ -18,6 +18,10 @@ class SellerController extends Controller
     {   
         return view('seller.index');
     }
+    public function create()
+    {   
+        return view('seller.index');
+    }
     public function orders()
     {   
         return view('seller.index');
