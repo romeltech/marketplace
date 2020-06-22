@@ -42,4 +42,5 @@ Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
     // Actions
     Route::get('/get-products', 'ProductController@index');
     Route::get('/product/create', 'SellerController@create');
+    Route::get('/products/{page}', 'SellerController@dashboard');
 });

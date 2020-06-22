@@ -2251,8 +2251,28 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2318,11 +2338,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return {
       // Products
       products: [],
-      baseUrl: window.location.origin
+      baseUrl: window.location.origin,
+      // pagination
+      page: []
     };
   },
   methods: {
-    view: function view() {
+    view: function view(i) {
       console.log(i);
     },
     edit: function edit(i) {
@@ -2336,15 +2358,36 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       axios.get("/seller/get-products?page=" + p).then(function (response) {
         _this.products = response.data.products.data;
-        console.log(_typeof(_this.products));
+        _this.page = Object.assign({}, response.data.products, {
+          data: undefined
+        });
       })["catch"](function (error) {
         console.log("Error: " + error);
       });
+    },
+    changePage: function changePage(i) {
+      if (i == 0) {
+        return;
+      }
+
+      this.$router.push({
+        path: "/seller/products/".concat(i)
+      })["catch"](function (err) {});
     }
   },
-  mounted: function mounted() {
-    this.getProducts(1);
-  }
+  watch: {
+    $route: function $route(to, from) {
+      this.getProducts(this.$route.params.page);
+    }
+  },
+  created: function created() {
+    if (this.$route.params.page) {
+      this.getProducts(this.$route.params.page);
+    } else {
+      this.getProducts(1);
+    }
+  },
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -41176,7 +41219,9 @@ var render = function() {
                       _c("img", {
                         staticClass: "mb-0",
                         attrs: {
-                          src: _vm.baseUrl + "/" + product.featured_image,
+                          src: product.featured_image
+                            ? _vm.baseUrl + "/" + product.featured_image
+                            : _vm.baseUrl + "/img/placeholder-img.jpg",
                           width: "30"
                         }
                       })
@@ -41225,7 +41270,91 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(1)
+            _c("nav", [
+              _c(
+                "ul",
+                { staticClass: "pagination justify-content-center" },
+                [
+                  _vm.page.prev_page_url != null
+                    ? _c("li", { staticClass: "page-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: {
+                              href: "javascript:void(0)",
+                              "aria-label": "Previous"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.changePage(_vm.page.current_page - 1)
+                              }
+                            }
+                          },
+                          [
+                            _c("span", { attrs: { "aria-hidden": "true" } }, [
+                              _vm._v("«")
+                            ])
+                          ]
+                        )
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm._l(_vm.page.last_page, function(index) {
+                    return _c(
+                      "li",
+                      {
+                        key: index,
+                        class:
+                          "page-item " +
+                          (index == _vm.page.current_page ? "active" : "")
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: { href: "javascript:void(0)" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changePage(index)
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(index))]
+                        )
+                      ]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _vm.page.next_page_url != null
+                    ? _c("li", { staticClass: "page-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: {
+                              href: "javascript:void(0)",
+                              "aria-label": "Next"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.changePage(_vm.page.current_page + 1)
+                              }
+                            }
+                          },
+                          [
+                            _c("span", { attrs: { "aria-hidden": "true" } }, [
+                              _vm._v("»")
+                            ])
+                          ]
+                        )
+                      ])
+                    : _vm._e()
+                ],
+                2
+              )
+            ])
           ])
         ])
       ])
@@ -41262,44 +41391,6 @@ var staticRenderFns = [
           [_vm._v("Action")]
         )
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("nav", { attrs: { "aria-label": "..." } }, [
-      _c(
-        "ul",
-        { staticClass: "pagination pagination-sm justify-content-center" },
-        [
-          _c(
-            "li",
-            {
-              staticClass: "page-item active",
-              attrs: { "aria-current": "page" }
-            },
-            [
-              _c("span", { staticClass: "page-link" }, [
-                _vm._v("\n                1\n                "),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("2")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("3")
-            ])
-          ])
-        ]
-      )
     ])
   }
 ]
@@ -57254,6 +57345,11 @@ var routes = [{
   props: true
 }, {
   path: '/seller/products',
+  name: 'SellerProducts',
+  component: _components_seller_SellerProducts__WEBPACK_IMPORTED_MODULE_1__["default"],
+  props: true
+}, {
+  path: '/seller/products/:page',
   name: 'SellerProducts',
   component: _components_seller_SellerProducts__WEBPACK_IMPORTED_MODULE_1__["default"],
   props: true

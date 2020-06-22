@@ -25,6 +25,12 @@ export const routes = [
         props: true
     },
     {
+        path: '/seller/products/:page',
+        name: 'SellerProducts',
+        component: SellerProducts,
+        props: true
+    },
+    {
         path: '/seller/orders',
         name: 'SellerOrders',
         component: SellerOrders,
