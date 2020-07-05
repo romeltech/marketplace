@@ -2,25 +2,20 @@
   <div class="container">
     <card-navigation :user="user" />
     <div class="row">
-      <ProductForm :user="user" />
+      <ProductForm :user="user"/>
     </div>
   </div>
 </template>
 
 <script>
-import ProductForm from "../forms/product/ProductForm";
+import ProductForm from '../forms/product/ProductForm'
 export default {
-  components: {
+  components:{
     ProductForm
-  },
-  data() {
-    return {
-      productID: null
-    };
   },
   props: {
     user: Object,
     default: null
-  }
+  },
 };
 </script>

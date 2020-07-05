@@ -97,7 +97,7 @@ export default {
       console.log(i);
     },
     edit(i) {
-      console.log(i);
+      this.$router.push({ path: `/seller/product/edit/${i}` }).catch(err => {});
     },
     remove(i) {
       console.log(i);
@@ -106,7 +106,7 @@ export default {
       axios
         .get("/seller/get-products?page=" + p)
         .then(response => {
-          this.products = response.data.products.data;
+          this.products = Object.assign({}, response.data.products.data);
           this.page = Object.assign({}, response.data.products, {
             data: undefined
           });

@@ -6,17 +6,28 @@
           <h4>Create Product</h4>
           <div>
             <button type="button" class="btn btn-light ml-2" @click="save('draft')">Save as Draft</button>
-            <button type="button" class="btn btn-primary ml-2" @click="save('publish')">Publish</button>
+            <button
+              v-if="this.$route.params.id"
+              type="button"
+              class="btn btn-primary ml-2"
+              @click="save('update')"
+            >Update</button>
+            <button
+              v-else
+              type="button"
+              class="btn btn-primary ml-2"
+              @click="save('publish')"
+            >Publish</button>
           </div>
         </div>
         <hr />
         <div class="col-md-8 pb-3">
           <div class="form-group">
             <label for="title">Title</label>
-            <ValidationProvider rules="required|alpha_spaces|min:3|max:250" mode="eager">
+            <ValidationProvider :rules="{ regex: /^[a-zA-Z0-9 -]+$/ }" mode="eager">
               <div slot-scope="{ errors }">
                 <input
-                  v-model="title"
+                  v-model="product.title"
                   :class="`form-control ${ errors[0] ? 'is-invalid' : ''}`"
                   id="title"
                 />
@@ -29,7 +40,7 @@
             <ValidationProvider rules="required|max:500" mode="eager">
               <div slot-scope="{ errors }">
                 <textarea
-                  v-model="description"
+                  v-model="product.description"
                   :class="`form-control ${ errors[0] ? 'is-invalid' : ''}`"
                   id="description"
                 />
@@ -40,6 +51,7 @@
         </div>
       </div>
     </form>
+    <Toast :status="toastData.status" :message="toastData.message" :type="toastData.type" />
   </div>
 </template>
 
@@ -56,34 +68,79 @@ export default {
   },
   data() {
     return {
-      title: "",
-      description: ""
+      action: "",
+      product: {
+        title: "",
+        description: ""
+      },
+      toastData: {
+        status: null,
+        type: "",
+        message: ""
+      }
     };
   },
   props: {
-    user: Object,
-    default: null
+    user: {
+      type: Object,
+      default: null
+    }
   },
   methods: {
+    clearToast() {
+      this.toastData.message = "";
+      this.toastData.type = "";
+      this.toastData.status = null;
+    },
+    toastUI(m, t, s) {
+      this.toastData.message = m;
+      this.toastData.type = t;
+      this.toastData.status = s;
+      setTimeout(() => {
+        this.clearToast();
+      }, 5000);
+    },
     save(action) {
+      this.clearToast();
+      let route = "";
       let data = {
-        title: this.title,
-        description: this.description,
-        status: action === "publish" ? 1 : 0
+        title: this.product.title,
+        description: this.product.description,
+        status: action === "draft" ? 0 : 1
       };
+      if (action === "update") {
+        route = "/product/update/" + this.product.id;
+      } else {
+        if (this.$route.params.id) {
+          route = "/product/update/" + this.product.id;
+        } else {
+          route = "/product/store";
+        }
+      }
       axios
-        .post("/product/store", data)
+        .post(route, data)
         .then(response => {
-          console.log(response);
+          this.toastUI(response.data.message, "success", true);
+          console.log("pass");
         })
         .catch(error => {
-          console.log(error.response);
+          this.toastUI(error.response.data.message, "error", true);
+          console.log("err");
+        });
+    },
+    getProduct(id) {
+      axios
+        .get("/seller/product/get/" + id)
+        .then(response => {
+          this.product = Object.assign({}, response.data.product);
+        })
+        .catch(error => {
+          console.log("Error: " + error);
         });
     }
   },
-  mounted() {}
+  created() {
+    this.$route.params.id && this.getProduct(this.$route.params.id);
+  }
 };
 </script>
-
-<style>
-</style>

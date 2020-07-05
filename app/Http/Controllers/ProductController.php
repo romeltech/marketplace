@@ -21,7 +21,14 @@ class ProductController extends Controller
             'message' => 'Products have been fetched'
         ], 200);
     }
-
+    public function getProduct($id)
+    {
+        $product = Product::find($id);
+        return response()->json([
+            'product' => $product,
+            'message' => 'Product have been fetched'
+        ], 200);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -41,13 +48,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->middleware('auth');
+
+        // format and add the slug and user id
         $slug = Str::slug($request->title);
         $request->request->set('slug', $slug);
         $request->request->set('author', auth()->id());
 
-        $post = Product::create($this->validateRequest());
+        $product = Product::create($this->validateRequest());
         return response()->json([
-            'posts' => $post,
+            'product' => $product,
+            'message' => 'Product has been updated',
         ], 200);
     }
 
@@ -82,7 +92,18 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->middleware('auth');
+
+        // format the slug
+        $slug = Str::slug($request->title);
+        $request->request->set('slug', $slug);
+        
+        $product = Product::where('id', '=', $id)->first();
+        $product->update($this->validateRequest());
+        return response()->json([
+            'product' => $product,
+            'message' => 'Product has been updated'
+        ], 200);
     }
 
     /**

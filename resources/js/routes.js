@@ -1,6 +1,7 @@
 import SellerDashboard from './components/seller/SellerDashboard';
 import SellerProducts from './components/seller/SellerProducts';
 import SellerCreateProduct from './components/seller/SellerCreateProduct';
+import SellerEditProduct from './components/seller/SellerEditProduct';
 import SellerOrders from './components/seller/SellerOrders';
 import SellerInquiries from './components/seller/SellerInquiries';
 import SellerMessages from './components/seller/SellerMessages';
@@ -28,6 +29,12 @@ export const routes = [
         path: '/seller/products/:page',
         name: 'SellerProducts',
         component: SellerProducts,
+        props: true
+    },
+    {
+        path: '/seller/product/edit/:id',
+        name: 'SellerEditProduct',
+        component: SellerEditProduct,
         props: true
     },
     {

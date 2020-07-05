@@ -21,6 +21,7 @@ Route::get('/products', 'PublicPagesController@products')->name('products');
 Route::get('/product/{product:slug}', 'PublicPagesController@product')->name('product');
 
 Route::post('/product/store', 'ProductController@store');
+Route::post('/product/update/{id}', 'ProductController@update');
 
 Route::group(['prefix'=>'buyer','as'=>'buyer.'], function(){
     Route::get('/dashboard', 'BuyerController@dashboard')->name('dashboard');
@@ -41,6 +42,8 @@ Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
 
     // Actions
     Route::get('/get-products', 'ProductController@index');
+    Route::get('/product/get/{id}', 'ProductController@getProduct');
     Route::get('/product/create', 'SellerController@create');
     Route::get('/products/{page}', 'SellerController@dashboard');
+    Route::get('/product/edit/{id}', 'SellerController@dashboard');
 });
