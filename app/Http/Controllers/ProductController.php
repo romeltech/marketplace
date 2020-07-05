@@ -97,13 +97,20 @@ class ProductController extends Controller
         // format the slug
         $slug = Str::slug($request->title);
         $request->request->set('slug', $slug);
-        
         $product = Product::where('id', '=', $id)->first();
-        $product->update($this->validateRequest());
-        return response()->json([
-            'product' => $product,
-            'message' => 'Product has been updated'
-        ], 200);
+        if($request->slug == $product->slug){
+            $product->update($this->validateRequestWithoutSlug());
+            return response()->json([
+                'product' => $product,
+                'message' => 'Product has been updated'
+            ], 200);
+        }else{
+            $product->update($this->validateRequest());
+            return response()->json([
+                'product' => $product,
+                'message' => 'Product has been updated'
+            ], 200);
+        }
     }
 
     /**
@@ -117,7 +124,7 @@ class ProductController extends Controller
         //
     }
 
-        /**
+    /**
      * Form Validation
      */
     public function validateRequest()
@@ -125,6 +132,18 @@ class ProductController extends Controller
         return request()->validate([
             'title' => ['required', 'min:1', 'max:50', 'string'],
             'slug' => ['min:1', 'max:50', 'string', 'alpha_dash', 'unique:products'],
+            'status' => [''],
+            'description' => [''],
+            'author' => [''],
+            'featured_image' => ['']
+        ]);
+
+    }
+    public function validateRequestWithoutSlug()
+    {
+        return request()->validate([
+            'title' => ['required', 'min:1', 'max:50', 'string'],
+            'slug' => [''],
             'status' => [''],
             'description' => [''],
             'author' => [''],

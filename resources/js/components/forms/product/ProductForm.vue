@@ -121,11 +121,11 @@ export default {
         .post(route, data)
         .then(response => {
           this.toastUI(response.data.message, "success", true);
-          console.log("pass");
+          console.log(response.data);
         })
         .catch(error => {
           this.toastUI(error.response.data.message, "error", true);
-          console.log("err");
+          console.log(error.response.data);
         });
     },
     getProduct(id) {

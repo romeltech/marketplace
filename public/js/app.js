@@ -2187,11 +2187,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(route, data).then(function (response) {
         _this2.toastUI(response.data.message, "success", true);
 
-        console.log("pass");
+        console.log(response.data);
       })["catch"](function (error) {
         _this2.toastUI(error.response.data.message, "error", true);
 
-        console.log("err");
+        console.log(error.response.data);
       });
     },
     getProduct: function getProduct(id) {
