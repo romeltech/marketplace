@@ -15,11 +15,12 @@
                         <li><a href="" data-tip="View"><i class="mdi mdi-eye"></i></a></li>
                         <li><a href="" data-tip="Add to Wishlist"><i class="mdi mdi-cards-heart"></i></a></li>
                     </ul>
-                    <a href="{{ url('/product/'.$product->slug.'/#inquire' ) }}" class="select-options">Inquire Now <i class="mdi mdi-send"></i></a>
+                    <a href="{{ url('/product/'.$product->slug.'/#inquire' ) }}" class="select-options">Inquire Now <i
+                            class="mdi mdi-send"></i></a>
                 </div>
                 <div class="product-content">
-                <h3 class="title"><a href="{{ url('/product/'.$product->slug ) }}">{{ $product->title }}</a></h3>
-                    {{-- <div class="price">$11.00 - $15.00</div> --}}
+                    <h3 class="title"><a href="{{ url('/product/'.$product->slug ) }}">{{ $product->title }}</a></h3>
+                    <div class="price">{{ $product->user->name }}</div>
                 </div>
             </div>
         </div>

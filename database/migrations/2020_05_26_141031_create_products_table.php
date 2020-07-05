@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('featured_image')->nullable(); 
             $table->integer('price')->nullable(); 
             $table->integer('sale_price')->nullable();       
-            $table->unsignedInteger('author')->nullable();
+            $table->unsignedInteger('user_id')->nullable();
             $table->boolean('status')->nullable()->default(true);
         });
     }
