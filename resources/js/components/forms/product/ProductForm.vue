@@ -4,7 +4,7 @@
       <div class="shadow-sm bg-white rounded">
         <div class="d-flex align-items-center justify-content-between pt-3 px-3 pb-0">
           <h4>Create Product</h4>
-          <div>
+          <div v-if="loading == false">
             <button type="button" class="btn btn-light ml-2" @click="save('draft')">Save as Draft</button>
             <button
               v-if="this.$route.params.id"
@@ -18,6 +18,12 @@
               class="btn btn-primary ml-2"
               @click="save('publish')"
             >Publish</button>
+          </div>
+          <div v-else class="alert alert-light d-flex align-items-center mb-0" role="alert">
+            <div class="spinner-border spinner-border-sm mr-2" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+            <span>Loading...</span>
           </div>
         </div>
         <hr />
@@ -77,7 +83,8 @@ export default {
         status: null,
         type: "",
         message: ""
-      }
+      },
+      loading: false
     };
   },
   props: {
@@ -102,6 +109,7 @@ export default {
     },
     save(action) {
       this.clearToast();
+      this.loading = true;
       let route = "";
       let data = {
         title: this.product.title,
@@ -121,9 +129,11 @@ export default {
         .post(route, data)
         .then(response => {
           this.toastUI(response.data.message, "success", true);
+          this.loading = false;
           console.log(response.data);
         })
         .catch(error => {
+          this.loading = false;
           this.toastUI(error.response.data.message, "error", true);
           console.log(error.response.data);
         });

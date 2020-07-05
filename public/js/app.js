@@ -2121,6 +2121,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2138,7 +2144,8 @@ __webpack_require__.r(__webpack_exports__);
         status: null,
         type: "",
         message: ""
-      }
+      },
+      loading: false
     };
   },
   props: {
@@ -2167,6 +2174,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.clearToast();
+      this.loading = true;
       var route = "";
       var data = {
         title: this.product.title,
@@ -2187,8 +2195,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(route, data).then(function (response) {
         _this2.toastUI(response.data.message, "success", true);
 
+        _this2.loading = false;
         console.log(response.data);
       })["catch"](function (error) {
+        _this2.loading = false;
+
         _this2.toastUI(error.response.data.message, "error", true);
 
         console.log(error.response.data);
@@ -41688,49 +41699,59 @@ var render = function() {
             [
               _c("h4", [_vm._v("Create Product")]),
               _vm._v(" "),
-              _c("div", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-light ml-2",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.save("draft")
-                      }
-                    }
-                  },
-                  [_vm._v("Save as Draft")]
-                ),
-                _vm._v(" "),
-                this.$route.params.id
-                  ? _c(
+              _vm.loading == false
+                ? _c("div", [
+                    _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary ml-2",
+                        staticClass: "btn btn-light ml-2",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            return _vm.save("update")
+                            return _vm.save("draft")
                           }
                         }
                       },
-                      [_vm._v("Update")]
-                    )
-                  : _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary ml-2",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            return _vm.save("publish")
-                          }
-                        }
-                      },
-                      [_vm._v("Publish")]
-                    )
-              ])
+                      [_vm._v("Save as Draft")]
+                    ),
+                    _vm._v(" "),
+                    this.$route.params.id
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary ml-2",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.save("update")
+                              }
+                            }
+                          },
+                          [_vm._v("Update")]
+                        )
+                      : _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary ml-2",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.save("publish")
+                              }
+                            }
+                          },
+                          [_vm._v("Publish")]
+                        )
+                  ])
+                : _c(
+                    "div",
+                    {
+                      staticClass:
+                        "alert alert-light d-flex align-items-center mb-0",
+                      attrs: { role: "alert" }
+                    },
+                    [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Loading...")])]
+                  )
             ]
           ),
           _vm._v(" "),
@@ -41866,7 +41887,21 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "spinner-border spinner-border-sm mr-2",
+        attrs: { role: "status" }
+      },
+      [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
+    )
+  }
+]
 render._withStripped = true
 
 
