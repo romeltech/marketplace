@@ -42,4 +42,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+
+    public function userRoles()
+    {
+        // return [
+        //     1 => 'super',
+        //     2 => 'admin',
+        //     3 => 'editor',
+        //     4 => 'buyer',
+        //     5 => 'seller',
+        //     6 => 'both',
+        //     7 => 'delivery',
+        // ];
+        if(auth()->role = 5){
+            return 'seller';
+        }
+    }
 }

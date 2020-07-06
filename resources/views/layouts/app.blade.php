@@ -22,48 +22,7 @@
 <body>
     <div id="app">
         <header>
-            <nav class="top-nav navbar navbar-dark bg-dark py-0">
-                <div class="container">
-                    <ul class="nav ml-auto justify-content-end">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('buyer.dashboard') }}">{{ __('Dashboard') }}</a>
-                                <a class="dropdown-item" href="{{ route('buyer.orders') }}">{{ __('Orders') }}</a>
-                                <a class="dropdown-item" href="{{ route('buyer.inquiries') }}">{{ __('Inquiries') }}</a>
-                                <a class="dropdown-item" href="{{ route('buyer.messages') }}">{{ __('Messages') }}</a>
-                                <hr style="margin-bottom: .5rem;">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
-            </nav>
-
+            @include('layouts.topnav')
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}" style="line-height: 60px;">
@@ -96,10 +55,8 @@
                         </ul>
                     </div>
                 </div>
-            </nav>                
-      
+            </nav>
         </header>
-
         <main class="py-4" style="min-height:85vh;">
             @yield('content')
         </main>
