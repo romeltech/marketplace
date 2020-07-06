@@ -52,12 +52,12 @@ class ProductController extends Controller
         // format and add the slug and user id
         $slug = Str::slug($request->title);
         $request->request->set('slug', $slug);
-        $request->request->set('author', auth()->id());
+        $request->request->set('user_id', auth()->id());
 
         $product = Product::create($this->validateRequest());
         return response()->json([
             'product' => $product,
-            'message' => 'Product has been updated',
+            'message' => 'Product has been published',
         ], 200);
     }
 

@@ -1932,6 +1932,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/buyer/BuyerDashboard.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/buyer/BuyerDashboard.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    user: Object,
+    "default": null
+  },
+  mounted: function mounted() {
+    console.log(this.user);
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/common/CardNavigation.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/common/CardNavigation.vue?vue&type=script&lang=js& ***!
@@ -41483,6 +41511,38 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/buyer/BuyerDashboard.vue?vue&type=template&id=077f8868&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/buyer/BuyerDashboard.vue?vue&type=template&id=077f8868& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("card-navigation", { attrs: { user: _vm.user } }),
+      _vm._v("\n  this is buyer's dashboard\n")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/common/CardNavigation.vue?vue&type=template&id=f81cce66&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/common/CardNavigation.vue?vue&type=template&id=f81cce66& ***!
@@ -57716,6 +57776,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/buyer/BuyerDashboard.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/buyer/BuyerDashboard.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BuyerDashboard_vue_vue_type_template_id_077f8868___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BuyerDashboard.vue?vue&type=template&id=077f8868& */ "./resources/js/components/buyer/BuyerDashboard.vue?vue&type=template&id=077f8868&");
+/* harmony import */ var _BuyerDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BuyerDashboard.vue?vue&type=script&lang=js& */ "./resources/js/components/buyer/BuyerDashboard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BuyerDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BuyerDashboard_vue_vue_type_template_id_077f8868___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BuyerDashboard_vue_vue_type_template_id_077f8868___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/buyer/BuyerDashboard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/buyer/BuyerDashboard.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/buyer/BuyerDashboard.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BuyerDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./BuyerDashboard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/buyer/BuyerDashboard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BuyerDashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/buyer/BuyerDashboard.vue?vue&type=template&id=077f8868&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/buyer/BuyerDashboard.vue?vue&type=template&id=077f8868& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BuyerDashboard_vue_vue_type_template_id_077f8868___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./BuyerDashboard.vue?vue&type=template&id=077f8868& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/buyer/BuyerDashboard.vue?vue&type=template&id=077f8868&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BuyerDashboard_vue_vue_type_template_id_077f8868___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BuyerDashboard_vue_vue_type_template_id_077f8868___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/common/CardNavigation.vue":
 /*!***********************************************************!*\
   !*** ./resources/js/components/common/CardNavigation.vue ***!
@@ -58441,61 +58570,73 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_seller_SellerOrders__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/seller/SellerOrders */ "./resources/js/components/seller/SellerOrders.vue");
 /* harmony import */ var _components_seller_SellerInquiries__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/seller/SellerInquiries */ "./resources/js/components/seller/SellerInquiries.vue");
 /* harmony import */ var _components_seller_SellerMessages__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/seller/SellerMessages */ "./resources/js/components/seller/SellerMessages.vue");
+/* harmony import */ var _components_buyer_BuyerDashboard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/buyer/BuyerDashboard */ "./resources/js/components/buyer/BuyerDashboard.vue");
 
 
 
 
 
 
+ // Buyer's Routes
 
-var routes = [{
-  path: '/seller',
-  name: 'SellerDashboard',
+
+var routes = [
+/**
+ * Seller
+ */
+{
+  path: "/seller",
+  name: "SellerDashboard",
   component: _components_seller_SellerDashboard__WEBPACK_IMPORTED_MODULE_0__["default"],
   props: true
 }, {
-  path: '/seller/dashboard',
-  name: 'SellerDashboard',
+  path: "/seller/dashboard",
+  name: "SellerDashboard",
   component: _components_seller_SellerDashboard__WEBPACK_IMPORTED_MODULE_0__["default"],
   props: true
 }, {
-  path: '/seller/products',
-  name: 'SellerProducts',
+  path: "/seller/products",
+  name: "SellerProducts",
   component: _components_seller_SellerProducts__WEBPACK_IMPORTED_MODULE_1__["default"],
   props: true
 }, {
-  path: '/seller/products/:page',
-  name: 'SellerProducts',
+  path: "/seller/products/:page",
+  name: "SellerProducts",
   component: _components_seller_SellerProducts__WEBPACK_IMPORTED_MODULE_1__["default"],
   props: true
 }, {
-  path: '/seller/product/edit/:id',
-  name: 'SellerEditProduct',
+  path: "/seller/product/edit/:id",
+  name: "SellerEditProduct",
   component: _components_seller_SellerEditProduct__WEBPACK_IMPORTED_MODULE_3__["default"],
   props: true
 }, {
-  path: '/seller/orders',
-  name: 'SellerOrders',
+  path: "/seller/orders",
+  name: "SellerOrders",
   component: _components_seller_SellerOrders__WEBPACK_IMPORTED_MODULE_4__["default"],
   props: true
 }, {
-  path: '/seller/inquiries',
-  name: 'SellerInquiries',
+  path: "/seller/inquiries",
+  name: "SellerInquiries",
   component: _components_seller_SellerInquiries__WEBPACK_IMPORTED_MODULE_5__["default"],
   props: true
 }, {
-  path: '/seller/messages',
-  name: 'SellerMessages',
+  path: "/seller/messages",
+  name: "SellerMessages",
   component: _components_seller_SellerMessages__WEBPACK_IMPORTED_MODULE_6__["default"],
+  props: true
+}, {
+  path: "/seller/product/create",
+  name: "SellerCreateProduct",
+  component: _components_seller_SellerCreateProduct__WEBPACK_IMPORTED_MODULE_2__["default"],
   props: true
 },
 /**
- * Actions
+ * Buyer
  */
 {
-  path: '/seller/product/create',
-  name: 'SellerCreateProduct',
-  component: _components_seller_SellerCreateProduct__WEBPACK_IMPORTED_MODULE_2__["default"],
+  path: "/buyer/dashboard",
+  name: "BuyerDashboard",
+  component: _components_buyer_BuyerDashboard__WEBPACK_IMPORTED_MODULE_7__["default"],
   props: true
 }];
 

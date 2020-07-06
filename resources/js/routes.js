@@ -1,68 +1,81 @@
-import SellerDashboard from './components/seller/SellerDashboard';
-import SellerProducts from './components/seller/SellerProducts';
-import SellerCreateProduct from './components/seller/SellerCreateProduct';
-import SellerEditProduct from './components/seller/SellerEditProduct';
-import SellerOrders from './components/seller/SellerOrders';
-import SellerInquiries from './components/seller/SellerInquiries';
-import SellerMessages from './components/seller/SellerMessages';
+import SellerDashboard from "./components/seller/SellerDashboard";
+import SellerProducts from "./components/seller/SellerProducts";
+import SellerCreateProduct from "./components/seller/SellerCreateProduct";
+import SellerEditProduct from "./components/seller/SellerEditProduct";
+import SellerOrders from "./components/seller/SellerOrders";
+import SellerInquiries from "./components/seller/SellerInquiries";
+import SellerMessages from "./components/seller/SellerMessages";
+
+// Buyer's Routes
+import BuyerDashboard from "./components/buyer/BuyerDashboard";
 
 export const routes = [
+    /**
+     * Seller
+     */
     {
-        path: '/seller',
-        name: 'SellerDashboard',
+        path: "/seller",
+        name: "SellerDashboard",
         component: SellerDashboard,
         props: true
     },
     {
-        path: '/seller/dashboard',
-        name: 'SellerDashboard',
+        path: "/seller/dashboard",
+        name: "SellerDashboard",
         component: SellerDashboard,
         props: true
     },
     {
-        path: '/seller/products',
-        name: 'SellerProducts',
+        path: "/seller/products",
+        name: "SellerProducts",
         component: SellerProducts,
         props: true
     },
     {
-        path: '/seller/products/:page',
-        name: 'SellerProducts',
+        path: "/seller/products/:page",
+        name: "SellerProducts",
         component: SellerProducts,
         props: true
     },
     {
-        path: '/seller/product/edit/:id',
-        name: 'SellerEditProduct',
+        path: "/seller/product/edit/:id",
+        name: "SellerEditProduct",
         component: SellerEditProduct,
         props: true
     },
     {
-        path: '/seller/orders',
-        name: 'SellerOrders',
+        path: "/seller/orders",
+        name: "SellerOrders",
         component: SellerOrders,
         props: true
     },
     {
-        path: '/seller/inquiries',
-        name: 'SellerInquiries',
+        path: "/seller/inquiries",
+        name: "SellerInquiries",
         component: SellerInquiries,
         props: true
     },
     {
-        path: '/seller/messages',
-        name: 'SellerMessages',
+        path: "/seller/messages",
+        name: "SellerMessages",
         component: SellerMessages,
+        props: true
+    },
+    {
+        path: "/seller/product/create",
+        name: "SellerCreateProduct",
+        component: SellerCreateProduct,
         props: true
     },
 
     /**
-     * Actions
+     * Buyer
      */
     {
-        path: '/seller/product/create',
-        name: 'SellerCreateProduct',
-        component: SellerCreateProduct,
+        path: "/buyer/dashboard",
+        name: "BuyerDashboard",
+        component: BuyerDashboard,
         props: true
-    },
-]
+    }
+
+];
