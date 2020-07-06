@@ -2,8 +2,8 @@
   <div class="col-12 pb-3">
     <form>
       <div class="shadow-sm bg-white rounded">
-        <div class="d-flex align-items-center justify-content-between pt-3 px-3 pb-0">
-          <h4>Create Product</h4>
+        <div class="d-flex align-items-center justify-content-between pt-3 px-3 pb-0" style="height:60px;">
+          <h4 class="mb-0">Create Product</h4>
           <div v-if="loading == false">
             <button type="button" class="btn btn-light ml-2" @click="save('draft')">Save as Draft</button>
             <button
@@ -19,7 +19,7 @@
               @click="save('publish')"
             >Publish</button>
           </div>
-          <div v-else class="alert alert-light d-flex align-items-center mb-0" role="alert">
+          <div v-else class="alert alert-light d-flex align-items-center mb-0 px-3" role="alert">
             <div class="spinner-border spinner-border-sm mr-2" role="status">
               <span class="sr-only">Loading...</span>
             </div>

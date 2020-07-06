@@ -41694,10 +41694,11 @@ var render = function() {
             "div",
             {
               staticClass:
-                "d-flex align-items-center justify-content-between pt-3 px-3 pb-0"
+                "d-flex align-items-center justify-content-between pt-3 px-3 pb-0",
+              staticStyle: { height: "60px" }
             },
             [
-              _c("h4", [_vm._v("Create Product")]),
+              _c("h4", { staticClass: "mb-0" }, [_vm._v("Create Product")]),
               _vm._v(" "),
               _vm.loading == false
                 ? _c("div", [
@@ -41747,7 +41748,7 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "alert alert-light d-flex align-items-center mb-0",
+                        "alert alert-light d-flex align-items-center mb-0 px-3",
                       attrs: { role: "alert" }
                     },
                     [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Loading...")])]
