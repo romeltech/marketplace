@@ -29,7 +29,7 @@
     <div id="inquire" class="row mb-5">
         <div class="col-md-12">
             <div class="shadow-sm px-3 py-4 bg-white rounded">
-                <h3 class="text-uppercase border-bottom pb-2 mb-3">Inquiry</h3>
+                <h3 class="text-uppercase border-bottom pb-2 mb-3">Inquiry Form</h3>
                 @guest
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
@@ -93,17 +93,7 @@
                     </div>
                 </form>
                 @else
-                <form>
-                    <input type="hidden" class="form-control" name="productID" value="{{ $product->id }}"
-                        id="productID">
-                    <div class="form-group col-md-12">
-                        <label for="message">Message</label>
-                        <textarea name="message" id="message" cols="auto" rows="3" class="w-100"></textarea>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-primary text-uppercase">Submit</button>
-                    </div>
-                </form>
+                <inquiry-form :product="{{$product}}"></inquiry-form>
                 @endif
             </div>
         </div>

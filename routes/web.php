@@ -17,11 +17,14 @@ Auth::routes();
 Route::get('/', 'PublicPagesController@home')->name('home');
 Route::get('/about', 'PublicPagesController@about')->name('about');
 Route::get('/contact', 'PublicPagesController@contact')->name('contact');
-Route::get('/products', 'PublicPagesController@products')->name('products');
-Route::get('/product/{product:slug}', 'PublicPagesController@product')->name('product');
 
 Route::post('/product/store', 'ProductController@store');
 Route::post('/product/update/{id}', 'ProductController@update');
+Route::post('/product/inquire', 'ProductController@inquire');
+
+Route::get('/products', 'PublicPagesController@products')->name('products');
+Route::get('/product/{product:slug}', 'PublicPagesController@product')->name('product');
+
 
 Route::group(['prefix'=>'buyer','as'=>'buyer.'], function(){
     Route::get('/dashboard', 'BuyerController@dashboard')->name('dashboard');

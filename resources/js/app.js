@@ -32,6 +32,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('card-navigation', require('./components/common/CardNavigation.vue').default);
 Vue.component('Toast', require('./components/common/Toast.vue').default);
 
+Vue.component('inquiry-form', require('./components/inquiries/InquiryForm.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

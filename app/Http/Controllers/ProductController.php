@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Inquiry;
 use App\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -121,12 +122,39 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 
+
+
     /**
-     * Form Validation
+     * Inquire Product
      */
+    public function inquire(Request $request)
+    {
+        $this->middleware('auth');
+        $request->request->set('from', auth()->id());
+        $inquiry = Inquiry::create($this->validateInquiry());
+        return response()->json([
+            'inquiry' => $inquiry,
+            'message' => 'Your inquiry has been sent'
+        ], 200);
+    }
+
+
+    /**
+     * Form Validations
+     */
+    public function validateInquiry()
+    {
+        return request()->validate([
+            'from' => ['required'],
+            'to' => ['required'],
+            'content' => ['required', 'min:60', 'max:2000'],
+            'product_details' => ['required']
+        ]);
+    }
+    
     public function validateRequest()
     {
         return request()->validate([
