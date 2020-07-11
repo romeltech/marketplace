@@ -63891,7 +63891,7 @@ var render = function() {
               _vm._v(" "),
               _c("hr"),
               _vm._v(" "),
-              _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card border-light" }, [
                 _c(
                   "div",
                   {

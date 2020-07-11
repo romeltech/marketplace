@@ -6,7 +6,7 @@
         <div class="card-body">
           <h4>Inquiry</h4>
           <hr />
-          <div class="card">
+          <div class="card border-light">
             <div class="card-header bg-light d-flex justify-content-start align-items-center">
               <div
                 class="rounded-circle text-white bg-success d-flex justify-content-center align-items-center text-uppercase"
