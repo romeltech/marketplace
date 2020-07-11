@@ -22,7 +22,13 @@
 <body>
     <div id="app">
         <header>
-            @include('layouts.topnav')
+            <nav class="top-nav navbar navbar-dark bg-dark py-0">
+                <div class="container">
+                    <ul class="nav ml-auto justify-content-end">
+                        @include('layouts.topnav')
+                    </ul>
+                </div>
+            </nav>
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}" style="line-height: 60px;">

@@ -22,7 +22,18 @@
 <body>
     <div id="app">
         <header>
-           @include('layouts.topnav')
+            <nav class="top-nav navbar navbar-dark bg-dark py-0">
+                <div class="container">
+                    <a class="navbar-brand px-3" href="{{ url('/') }}">
+                        MARKETPLACE
+                        {{-- <img src="https://aboudcrm.com/store/wp-content/uploads/2020/04/olive-country.png"
+                            alt="Olive Country" width="100"> --}}
+                    </a>
+                    <ul class="nav ml-auto justify-content-end">
+                        @include('layouts.topnav')
+                    </ul>
+                </div>
+            </nav>
         </header>
         <main class="py-4" style="min-height:85vh;">
             @yield('content')
