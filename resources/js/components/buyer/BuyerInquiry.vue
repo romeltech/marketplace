@@ -2,37 +2,31 @@
   <div class="container">
     <card-navigation :user="user" />
     <div>
-      <div class="card border-light mb-3 shadow-sm" style="max-width: 100%;">
+      <div class="card border-light shadow-sm">
+        <div class="card-header bg-light d-flex justify-content-start align-items-center">
+          <div
+            class="rounded-circle text-white bg-success d-flex justify-content-center align-items-center text-uppercase"
+            style="width:50px;height:50px;font-size:24px;"
+          >{{userInitial(toUser.name)}}</div>
+          <h5 class="mb-0 ml-3">
+            {{toUser.name}}
+            <br />
+            <small>
+              {{toUser.email}} |
+              {{toUser.phone}}
+            </small>
+          </h5>
+        </div>
         <div class="card-body">
-          <h4>Inquiry</h4>
-          <hr />
-          <div class="card border-light">
-            <div class="card-header bg-light d-flex justify-content-start align-items-center">
-              <div
-                class="rounded-circle text-white bg-success d-flex justify-content-center align-items-center text-uppercase"
-                style="width:50px;height:50px;font-size:24px;"
-              >{{userInitial(toUser.name)}}</div>
-              <h5 class="mb-0 ml-3">
-                {{toUser.name}}
-                <br />
-                <small>
-                  {{toUser.email}} |
-                  {{toUser.phone}}
-                </small>
-              </h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">{{ message }}</p>
-              <h5 class="card-title">
-                <small>Inquired for:</small>
-              </h5>
-              <div class="shadow-sm rounded p-3 mb-3" style="max-width: 18rem;">
-                <h5>{{productDetails.title}}</h5>
-                <p class="card-text">{{ productDetails.description }}</p>
-              </div>
-              <a href="#" class="btn btn-primary">Message {{toUser.name}}</a>
-            </div>
+          <p class="card-text">{{ message }}</p>
+          <h5 class="card-title">
+            <small>Inquired for:</small>
+          </h5>
+          <div class="shadow-sm rounded p-3 mb-3" style="max-width: 18rem;">
+            <h5>{{productDetails.title}}</h5>
+            <p class="card-text">{{ productDetails.description }}</p>
           </div>
+          <a href="#" class="btn btn-primary">Message {{toUser.name}}</a>
         </div>
       </div>
     </div>

@@ -2079,12 +2079,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     user: Object,
@@ -63318,93 +63312,74 @@ var render = function() {
       _c("card-navigation", { attrs: { user: _vm.user } }),
       _vm._v(" "),
       _c("div", [
-        _c(
-          "div",
-          {
-            staticClass: "card border-light mb-3 shadow-sm",
-            staticStyle: { "max-width": "100%" }
-          },
-          [
-            _c("div", { staticClass: "card-body" }, [
-              _c("h4", [_vm._v("Inquiry")]),
+        _c("div", { staticClass: "card border-light shadow-sm" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "card-header bg-light d-flex justify-content-start align-items-center"
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "rounded-circle text-white bg-success d-flex justify-content-center align-items-center text-uppercase",
+                  staticStyle: {
+                    width: "50px",
+                    height: "50px",
+                    "font-size": "24px"
+                  }
+                },
+                [_vm._v(_vm._s(_vm.userInitial(_vm.toUser.name)))]
+              ),
               _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c("div", { staticClass: "card border-light" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "card-header bg-light d-flex justify-content-start align-items-center"
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "rounded-circle text-white bg-success d-flex justify-content-center align-items-center text-uppercase",
-                        staticStyle: {
-                          width: "50px",
-                          height: "50px",
-                          "font-size": "24px"
-                        }
-                      },
-                      [_vm._v(_vm._s(_vm.userInitial(_vm.toUser.name)))]
-                    ),
-                    _vm._v(" "),
-                    _c("h5", { staticClass: "mb-0 ml-3" }, [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(_vm.toUser.name) +
-                          "\n              "
-                      ),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("small", [
-                        _vm._v(
-                          "\n                " +
-                            _vm._s(_vm.toUser.email) +
-                            " |\n                " +
-                            _vm._s(_vm.toUser.phone) +
-                            "\n              "
-                        )
-                      ])
-                    ])
-                  ]
+              _c("h5", { staticClass: "mb-0 ml-3" }, [
+                _vm._v(
+                  "\n          " + _vm._s(_vm.toUser.name) + "\n          "
                 ),
+                _c("br"),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("p", { staticClass: "card-text" }, [
-                    _vm._v(_vm._s(_vm.message))
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "shadow-sm rounded p-3 mb-3",
-                      staticStyle: { "max-width": "18rem" }
-                    },
-                    [
-                      _c("h5", [_vm._v(_vm._s(_vm.productDetails.title))]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(_vm.productDetails.description))
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                    [_vm._v("Message " + _vm._s(_vm.toUser.name))]
+                _c("small", [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.toUser.email) +
+                      " |\n            " +
+                      _vm._s(_vm.toUser.phone) +
+                      "\n          "
                   )
                 ])
               ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("p", { staticClass: "card-text" }, [
+              _vm._v(_vm._s(_vm.message))
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "shadow-sm rounded p-3 mb-3",
+                staticStyle: { "max-width": "18rem" }
+              },
+              [
+                _c("h5", [_vm._v(_vm._s(_vm.productDetails.title))]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(_vm.productDetails.description))
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+              _vm._v("Message " + _vm._s(_vm.toUser.name))
             ])
-          ]
-        )
+          ])
+        ])
       ])
     ],
     1
