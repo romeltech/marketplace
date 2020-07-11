@@ -4,6 +4,7 @@ namespace App;
 
 use App\Inquiry;
 use App\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -51,6 +52,23 @@ class User extends Authenticatable
 
     public function userRoles()
     {
+        if (Auth::check()){
+            if(Auth::user()->role == 1){
+                return 'super';
+            }elseif(Auth::user()->role == 2){
+                return 'admin';
+            }elseif(Auth::user()->role == 3){
+                return 'editor';
+            }elseif(Auth::user()->role == 4){
+                return 'buyer';
+            }elseif(Auth::user()->role == 5){
+                return 'seller';
+            }elseif(Auth::user()->role == 6){
+                return 'both';
+            }elseif(Auth::user()->role == 7){
+                return 'delivery';
+            }
+        }
         // return [
         //     1 => 'super',
         //     2 => 'admin',
@@ -60,8 +78,9 @@ class User extends Authenticatable
         //     6 => 'both',
         //     7 => 'delivery',
         // ];
-        if(auth()->role = 5){
-            return 'seller';
-        }
+        // if(auth()->role = 5){
+        //     return 'seller';
+        // }
+      
     }
 }
