@@ -23,8 +23,10 @@
                         href="{{ route(Auth::user()->userRoles().'.dashboard') }}">{{ __('Dashboard') }}</a>
                     <a class="dropdown-item"
                         href="{{ route(Auth::user()->userRoles().'.orders') }}">{{ __('Orders') }}</a>
-                    <a class="dropdown-item"
-                        href="{{ route(Auth::user()->userRoles().'.inquiries') }}">{{ __('Inquiries') }}</a>
+                    {{-- <a class="dropdown-item"
+                        href="{{ route(Auth::user()->userRoles().'.inquiries') }}">{{ __('Inquiries') }}</a> --}}
+                    {{-- <a class="dropdown-item"
+                        href="{{ route(Auth::user()->userRoles().'.inquiries') }}">{{ __('Inquiries') }}</a> --}}
                     <a class="dropdown-item"
                         href="{{ route(Auth::user()->userRoles().'.messages') }}">{{ __('Messages') }}</a>
                     <hr style="margin-bottom: .5rem;">

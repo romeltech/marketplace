@@ -27,39 +27,39 @@ class SellerController extends Controller
     {   
         return view('seller.index');
     }
-    public function inquiries()
+    public function leads()
     {   
         return view('seller.index');
     }
-    public function inquiry()
+    public function lead()
     {   
         return view('seller.index');
     }
-    public function readInquiry($id)
+    public function readLead($id)
     {
-        $inquiry = Inquiry::where('id', '=', $id)->first();
-        $inquiry->update(
+        $lead = Inquiry::where('id', '=', $id)->first();
+        $lead->update(
             ['read' => 1]
         );
         return response()->json([
-            'inquiry' => $inquiry,
-            'message' => 'Inguiry has been read'
+            'lead' => $lead,
+            'message' => 'Lead has been read'
         ], 200);
     }
-    public function getInquiry($id)
+    public function getLead($id)
     {   
-        $inquiry = Inquiry::where('id', '=', $id)->with('from')->first();
+        $lead = Inquiry::where('id', '=', $id)->with('from')->first();
         return response()->json([
-            'inquiry' => $inquiry,
-            'message' => 'Inguiry has been fetched'
+            'lead' => $lead,
+            'message' => 'Lead has been fetched'
         ], 200);
     }
-    public function getInquiries()
+    public function getLeads()
     {   
-        $inquiries = Inquiry::where('to_id', '=', auth()->id() )->with('from')->paginate(10);
+        $leads = Inquiry::where('to_id', '=', auth()->id() )->with('from')->paginate(10);
         return response()->json([
-            'inquiries' => $inquiries,
-            'message' => 'Inquiries have been fetched'
+            'leads' => $leads,
+            'message' => 'Leads have been fetched'
         ], 200);
     }
     public function messages()

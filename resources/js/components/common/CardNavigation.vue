@@ -5,7 +5,7 @@
         <h6 class="text-uppercase mb-0">Dashboard</h6>
       </div>
     </div>
-    <div class="col-sm-6 col-md-3 mb-4">
+    <div v-if="user.role == 5" class="col-sm-6 col-md-3 mb-4">
       <div
         @click="goTo('products')"
         class="shadow-sm px-3 py-4 bg-white rounded d-flex justify-content-between pointer"
@@ -23,9 +23,14 @@
         <span class="badge badge-primary badge-pill">14</span>
       </div>
     </div>
-    <div class="col-sm-6 col-md-3 mb-4">
+    <div v-if="user.role == 5" class="col-sm-6 col-md-3 mb-4">
+      <div @click="goTo('leads')" class="shadow-sm px-3 py-4 bg-white rounded pointer">
+        <h6 class="text-uppercase mb-0">Leads</h6>
+      </div>
+    </div>
+    <div v-if="user.role == 4" class="col-sm-6 col-md-3 mb-4">
       <div @click="goTo('inquiries')" class="shadow-sm px-3 py-4 bg-white rounded pointer">
-        <h6 class="text-uppercase mb-0" v-html="user.role == 4 ? 'Inquiries' : 'Leads'"></h6>
+        <h6 class="text-uppercase mb-0">Inquiries</h6>
       </div>
     </div>
     <div class="col-sm-6 col-md-3 mb-4">
@@ -47,7 +52,7 @@ export default {
     default: null
   },
   methods: {
-    goTo(key) {
+    goTo(r) {
       let role = "";
       if (this.user.role == 4) {
         role = "buyer";
@@ -56,7 +61,7 @@ export default {
       } else {
         role = 0;
       }
-      this.$router.push({ path: "/" + role + "/" + key }).catch(err => {});
+      this.$router.push({ path: "/" + role + "/" + r }).catch(err => {});
     }
   }
 };

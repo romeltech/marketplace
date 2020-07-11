@@ -3,8 +3,8 @@ import SellerProducts from "./components/seller/SellerProducts";
 import SellerCreateProduct from "./components/seller/SellerCreateProduct";
 import SellerEditProduct from "./components/seller/SellerEditProduct";
 import SellerOrders from "./components/seller/SellerOrders";
-import SellerInquiries from "./components/seller/SellerInquiries";
-import SellerInquiry from "./components/seller/SellerInquiry";
+import SellerLeads from "./components/seller/SellerLeads";
+import SellerLead from "./components/seller/SellerLead";
 import SellerMessages from "./components/seller/SellerMessages";
 
 // Buyer's Routes
@@ -53,15 +53,15 @@ export const routes = [
         props: true
     },
     {
-        path: "/seller/inquiries",
-        name: "SellerInquiries",
-        component: SellerInquiries,
+        path: "/seller/leads",
+        name: "SellerLeads",
+        component: SellerLeads,
         props: true
     },
     {
-        path: "/seller/inquiry/:id",
-        name: "SellerInquiry",
-        component: SellerInquiry,
+        path: "/seller/lead/:id",
+        name: "SellerLead",
+        component: SellerLead,
         props: true
     },
     {

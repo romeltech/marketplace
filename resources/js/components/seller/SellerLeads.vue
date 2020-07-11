@@ -9,14 +9,14 @@
           <table class="table border">
             <tbody>
               <tr
-                @click="openInquiry(inquiry.id)"
-                v-for="inquiry in inquiries "
-                :key="inquiry.id"
-                :class="`pointer ${ inquiry.read  == 0 ? 'font-weight-bold bg-light' : 'font-weight-normal'}`"
+                @click="openLead(lead.id)"
+                v-for="lead in leads "
+                :key="lead.id"
+                :class="`pointer ${ lead.read  == 0 ? 'font-weight-bold bg-light' : 'font-weight-normal'}`"
               >
-                <td width="30%">{{inquiry.from.name}}</td>
-                <td width="45%">{{ JSON.parse(inquiry.product_details).title }}</td>
-                <td class="w-25 text-right">{{ formatDate(inquiry.created_at) }}</td>
+                <td width="30%">{{lead.from.name}}</td>
+                <td width="45%">{{ JSON.parse(lead.product_details).title }}</td>
+                <td class="w-25 text-right">{{ formatDate(lead.created_at) }}</td>
               </tr>
             </tbody>
           </table>
@@ -34,21 +34,21 @@ export default {
   },
   data() {
     return {
-      inquiries: {}
+      leads: {}
     };
   },
   methods: {
-    openInquiry(id) {
-      this.$router.push({ path: `/seller/inquiry/${id}` }).catch(err => {});
+    openLead(id) {
+      this.$router.push({ path: `/seller/lead/${id}` }).catch(err => {});
     },
     formatDate(d) {
       return moment(d).format("MMMM DD, YYYY");
     },
     getInquiries() {
       axios
-        .get("/seller/get-inquiries")
+        .get("/seller/get-leads")
         .then(response => {
-          this.inquiries = Object.assign({}, response.data.inquiries.data);
+          this.leads = Object.assign({}, response.data.leads.data);
         })
         .catch(error => {
           console.log("Error: " + error);

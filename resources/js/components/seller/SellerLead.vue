@@ -4,7 +4,7 @@
     <div>
       <div class="card border-light mb-3 shadow-sm" style="max-width: 100%;">
         <div class="card-body">
-          <h4>Inquiry</h4>
+          <h4>Lead</h4>
           <hr />
           <div class="card border-light">
             <div class="card-header bg-light d-flex justify-content-start align-items-center">
@@ -45,17 +45,17 @@ export default {
   },
   data() {
     return {
-      inquiry: null,
+      lead: null,
       message: "",
       fromUser: {},
       productDetails: {}
     };
   },
   methods: {
-    readInquiry(i) {
+    readLead(i) {
       if (i.read == 0) {
         axios
-          .get("/seller/read-inquiry/" + i.id)
+          .get("/seller/read-lead/" + i.id)
           .then(response => {
             console.log(response.data);
           })
@@ -71,17 +71,17 @@ export default {
     },
     getInquiry(id) {
       axios
-        .get("/seller/get-inquiry/" + id)
+        .get("/seller/get-lead/" + id)
         .then(response => {
-          this.inquiry = Object.assign({}, response.data.inquiry);
-          this.name = this.inquiry.from.name;
-          this.message = JSON.parse(this.inquiry.content).message;
-          this.fromUser = Object.assign({}, this.inquiry.from);
+          this.lead = Object.assign({}, response.data.lead);
+          this.name = this.lead.from.name;
+          this.message = JSON.parse(this.lead.content).message;
+          this.fromUser = Object.assign({}, this.lead.from);
           this.productDetails = Object.assign(
             {},
-            JSON.parse(this.inquiry.product_details)
+            JSON.parse(this.lead.product_details)
           );
-          this.readInquiry(this.inquiry);
+          this.readLead(this.lead);
         })
         .catch(error => {
           console.log("Error: " + error);
