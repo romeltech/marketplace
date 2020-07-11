@@ -17,16 +17,19 @@
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
-
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"
                         href="{{ route(Auth::user()->userRoles().'.dashboard') }}">{{ __('Dashboard') }}</a>
                     <a class="dropdown-item"
                         href="{{ route(Auth::user()->userRoles().'.orders') }}">{{ __('Orders') }}</a>
-                    {{-- <a class="dropdown-item"
-                        href="{{ route(Auth::user()->userRoles().'.inquiries') }}">{{ __('Inquiries') }}</a> --}}
-                    {{-- <a class="dropdown-item"
-                        href="{{ route(Auth::user()->userRoles().'.inquiries') }}">{{ __('Inquiries') }}</a> --}}
+                    @if (Auth::user()->role == 4)
+                    <a class="dropdown-item"
+                        href="{{ route(Auth::user()->userRoles().'.inquiries') }}">{{ __('Inquiries') }}</a>
+                    @endif
+                    @if (Auth::user()->role == 5)
+                    <a class="dropdown-item"
+                        href="{{ route(Auth::user()->userRoles().'.leads') }}">{{ __('Leads') }}</a>
+                    @endif
                     <a class="dropdown-item"
                         href="{{ route(Auth::user()->userRoles().'.messages') }}">{{ __('Messages') }}</a>
                     <hr style="margin-bottom: .5rem;">
