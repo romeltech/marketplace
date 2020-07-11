@@ -12,9 +12,9 @@
                 @click="openInquiry(inquiry.id)"
                 v-for="inquiry in inquiries "
                 :key="inquiry.id"
-                :class="`pointer ${ inquiry.read  == 0 ? 'unread' : ''}`"
+                :class="`pointer ${ inquiry.read  == 0 ? 'font-weight-bold bg-light' : 'font-weight-normal'}`"
               >
-                <th width="30%" class="font-weight-normal">{{inquiry.from.name}}</th>
+                <td width="30%">{{inquiry.from.name}}</td>
                 <td width="45%">{{ JSON.parse(inquiry.product_details).title }}</td>
                 <td class="w-25 text-right">{{ formatDate(inquiry.created_at) }}</td>
               </tr>

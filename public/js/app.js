@@ -63811,7 +63811,11 @@ var render = function() {
                       "tr",
                       {
                         key: inquiry.id,
-                        class: "pointer " + (inquiry.read == 0 ? "unread" : ""),
+                        class:
+                          "pointer " +
+                          (inquiry.read == 0
+                            ? "font-weight-bold bg-light"
+                            : "font-weight-normal"),
                         on: {
                           click: function($event) {
                             return _vm.openInquiry(inquiry.id)
@@ -63819,14 +63823,9 @@ var render = function() {
                         }
                       },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "font-weight-normal",
-                            attrs: { width: "30%" }
-                          },
-                          [_vm._v(_vm._s(inquiry.from.name))]
-                        ),
+                        _c("td", { attrs: { width: "30%" } }, [
+                          _vm._v(_vm._s(inquiry.from.name))
+                        ]),
                         _vm._v(" "),
                         _c("td", { attrs: { width: "45%" } }, [
                           _vm._v(
@@ -63897,7 +63896,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "card-header d-flex justify-content-start align-items-center"
+                      "card-header bg-light d-flex justify-content-start align-items-center"
                   },
                   [
                     _c(
