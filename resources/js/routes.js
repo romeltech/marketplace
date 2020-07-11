@@ -4,6 +4,7 @@ import SellerCreateProduct from "./components/seller/SellerCreateProduct";
 import SellerEditProduct from "./components/seller/SellerEditProduct";
 import SellerOrders from "./components/seller/SellerOrders";
 import SellerInquiries from "./components/seller/SellerInquiries";
+import SellerInquiry from "./components/seller/SellerInquiry";
 import SellerMessages from "./components/seller/SellerMessages";
 
 // Buyer's Routes
@@ -56,6 +57,12 @@ export const routes = [
         props: true
     },
     {
+        path: "/seller/inquiry/:id",
+        name: "SellerInquiry",
+        component: SellerInquiry,
+        props: true
+    },
+    {
         path: "/seller/messages",
         name: "SellerMessages",
         component: SellerMessages,
@@ -76,6 +83,6 @@ export const routes = [
         name: "BuyerDashboard",
         component: BuyerDashboard,
         props: true
-    }
+    },
 
 ];

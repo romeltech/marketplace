@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Inquiry;
 use App\Product;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -41,6 +42,11 @@ class User extends Authenticatable
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function inquiries()
+    {
+        return $this->hasMany(Inquiry::class);
     }
 
     public function userRoles()

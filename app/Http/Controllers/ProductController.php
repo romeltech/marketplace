@@ -133,7 +133,7 @@ class ProductController extends Controller
     public function inquire(Request $request)
     {
         $this->middleware('auth');
-        $request->request->set('from', auth()->id());
+        $request->request->set('from_id', auth()->id());
         $inquiry = Inquiry::create($this->validateInquiry());
         return response()->json([
             'inquiry' => $inquiry,
@@ -148,9 +148,9 @@ class ProductController extends Controller
     public function validateInquiry()
     {
         return request()->validate([
-            'from' => ['required'],
+            'from_id' => ['required'],
             'to' => ['required'],
-            'content' => ['required', 'min:60', 'max:2000'],
+            'content' => ['required', 'min:20', 'max:2000'],
             'product_details' => ['required']
         ]);
     }

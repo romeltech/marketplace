@@ -6,8 +6,8 @@
         <div class="col-md-6 col-sm-12">
             <div class="product-grid5">
                 <div class="product-image5">
-                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-1.jpg">
-                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo11/images/img-2.jpg">
+                    <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-1.jpg">
+                    <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-2.jpg">
                     <ul class="social">
                         <li><a href="" data-tip="View"><i class="mdi mdi-eye"></i></a></li>
                         <li><a href="" data-tip="Add to Wishlist"><i class="mdi mdi-cards-heart"></i></a></li>

@@ -34,6 +34,8 @@ Route::group(['prefix'=>'buyer','as'=>'buyer.'], function(){
     Route::get('/account-settings', 'BuyerController@accountSettings')->name('account-settings');
 });
 
+
+
 Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
     // Pages
     Route::get('/', 'SellerController@dashboard')->name('dashboard');
@@ -41,12 +43,17 @@ Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
     Route::get('/products', 'SellerController@products')->name('products');
     Route::get('/orders', 'SellerController@orders')->name('orders');
     Route::get('/inquiries', 'SellerController@inquiries')->name('inquiries');
+    Route::get('/inquiry/{id}', 'SellerController@inquiry')->name('inquiry');
     Route::get('/messages', 'SellerController@messages')->name('messages');
-
+    
     // Actions
     Route::get('/get-products', 'ProductController@index');
     Route::get('/product/get/{id}', 'ProductController@getProduct');
     Route::get('/product/create', 'SellerController@create');
     Route::get('/products/{page}', 'SellerController@dashboard');
     Route::get('/product/edit/{id}', 'SellerController@dashboard');
+    
+    Route::get('/get-inquiries', 'SellerController@getInquiries');
+    Route::get('/get-inquiry/{id}', 'SellerController@getInquiry');
+    Route::get('/read-inquiry/{id}', 'SellerController@readInquiry');
 });

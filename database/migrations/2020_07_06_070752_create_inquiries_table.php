@@ -15,10 +15,11 @@ class CreateInquiriesTable extends Migration
     {
         Schema::create('inquiries', function (Blueprint $table) {
             $table->id();
-            $table->integer('from')->unsigned();
+            $table->unsignedInteger('from_id');
             $table->integer('to')->unsigned();
             $table->text('content');
             $table->text('product_details');
+            $table->boolean('read')->nullable()->default(false);
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@
       <div class="form-group">
         <label for="inquire-for">Inquire for</label>
         <input
-          v-model="content.inquirefor"
+          v-model="product.title"
           type="text"
           class="form-control"
           id="inquire-for"
@@ -78,7 +78,6 @@ export default {
       successMessage: "",
       loading: false,
       content: {
-        inquirefor: this.product.title,
         message: ""
       }
     };
