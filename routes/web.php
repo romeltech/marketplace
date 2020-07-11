@@ -25,11 +25,16 @@ Route::post('/product/inquire', 'ProductController@inquire');
 Route::get('/products', 'PublicPagesController@products')->name('products');
 Route::get('/product/{product:slug}', 'PublicPagesController@product')->name('product');
 
+Route::group(['prefix'=>'c','as'=>'c.'], function(){
+    Route::get('/inquiries', 'InquiriesController@getInquiries')->name('get-inquiries');
+});
 
 Route::group(['prefix'=>'buyer','as'=>'buyer.'], function(){
     Route::get('/dashboard', 'BuyerController@dashboard')->name('dashboard');
     Route::get('/orders', 'BuyerController@orders')->name('orders');
     Route::get('/inquiries', 'BuyerController@inquiries')->name('inquiries');
+    Route::get('/inquiry/{id}', 'BuyerController@inquiry')->name('inquiry');
+    Route::get('/get-inquiry/{id}', 'inquiriesController@getInquiryById')->name('get-inquiry-by-id');
     Route::get('/messages', 'BuyerController@messages')->name('messages');
     Route::get('/account-settings', 'BuyerController@accountSettings')->name('account-settings');
 });
@@ -48,12 +53,12 @@ Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
     
     // Actions
     Route::get('/get-products', 'ProductController@index');
-    Route::get('/product/get/{id}', 'ProductController@getProduct');
+    Route::get('/product/get/{id}', 'ProductController@getProduct')->name('get-product-by-id');
     Route::get('/product/create', 'SellerController@create');
     Route::get('/products/{page}', 'SellerController@dashboard');
-    Route::get('/product/edit/{id}', 'SellerController@dashboard');
+    Route::get('/product/edit/{id}', 'SellerController@dashboard')->name('edit.product');
     
     Route::get('/get-inquiries', 'SellerController@getInquiries');
-    Route::get('/get-inquiry/{id}', 'SellerController@getInquiry');
-    Route::get('/read-inquiry/{id}', 'SellerController@readInquiry');
+    Route::get('/get-inquiry/{id}', 'SellerController@getInquiry')->name('get-inquiry-by-id');
+    Route::get('/read-inquiry/{id}', 'SellerController@readInquiry')->name('update-read');
 });

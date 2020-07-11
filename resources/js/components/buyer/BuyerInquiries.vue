@@ -4,7 +4,7 @@
     <div>
       <div class="card border-light mb-3 shadow-sm" style="max-width: 100%;">
         <div class="card-body">
-          <h4>LEADS</h4>
+          <h4>INQUIRIES</h4>
           <hr />
           <table class="table border">
             <tbody>
@@ -12,9 +12,9 @@
                 @click="openInquiry(inquiry.id)"
                 v-for="inquiry in inquiries "
                 :key="inquiry.id"
-                :class="`pointer ${ inquiry.read  == 0 ? 'font-weight-bold bg-light' : 'font-weight-normal'}`"
+                class="pointer font-weight-normal"
               >
-                <td width="30%">{{inquiry.from.name}}</td>
+                <td width="30%">{{inquiry.to.name}}</td>
                 <td width="45%">{{ JSON.parse(inquiry.product_details).title }}</td>
                 <td class="w-25 text-right">{{ formatDate(inquiry.created_at) }}</td>
               </tr>
@@ -39,16 +39,17 @@ export default {
   },
   methods: {
     openInquiry(id) {
-      this.$router.push({ path: `/seller/inquiry/${id}` }).catch(err => {});
+      this.$router.push({ path: `/buyer/inquiry/${id}` }).catch(err => {});
     },
     formatDate(d) {
       return moment(d).format("MMMM DD, YYYY");
     },
     getInquiries() {
       axios
-        .get("/seller/get-inquiries")
+        .get("/c/inquiries")
         .then(response => {
           this.inquiries = Object.assign({}, response.data.inquiries.data);
+          console.log(this.inquiries);
         })
         .catch(error => {
           console.log("Error: " + error);

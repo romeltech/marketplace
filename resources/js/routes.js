@@ -9,6 +9,8 @@ import SellerMessages from "./components/seller/SellerMessages";
 
 // Buyer's Routes
 import BuyerDashboard from "./components/buyer/BuyerDashboard";
+import BuyerInquiries from "./components/buyer/BuyerInquiries";
+import BuyerInquiry from "./components/buyer/BuyerInquiry";
 
 export const routes = [
     /**
@@ -82,6 +84,18 @@ export const routes = [
         path: "/buyer/dashboard",
         name: "BuyerDashboard",
         component: BuyerDashboard,
+        props: true
+    },
+    {
+        path: "/buyer/inquiries",
+        name: "BuyerInquiries",
+        component: BuyerInquiries,
+        props: true
+    },
+    {
+        path: "/buyer/inquiry/:id",
+        name: "BuyerInquiry",
+        component: BuyerInquiry,
         props: true
     },
 

@@ -87,7 +87,7 @@ export default {
       this.loading = true;
       let data = {
         content: JSON.stringify(this.content),
-        to: this.product.user.id,
+        to_id: this.product.user.id,
         product_details: JSON.stringify(this.product)
       };
       axios

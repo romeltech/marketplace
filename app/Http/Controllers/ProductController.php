@@ -149,7 +149,7 @@ class ProductController extends Controller
     {
         return request()->validate([
             'from_id' => ['required'],
-            'to' => ['required'],
+            'to_id' => ['required'],
             'content' => ['required', 'min:20', 'max:2000'],
             'product_details' => ['required']
         ]);

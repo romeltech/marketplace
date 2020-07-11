@@ -12,22 +12,26 @@ class BuyerController extends Controller
     }
     public function dashboard()
     {
-        return view('buyer.dashboard');
+        return view('buyer.index');
     }
     public function orders()
     {
-        return view('buyer.dashboard');
+        return view('buyer.index');
     }
     public function inquiries()
     {
-        return view('buyer.dashboard');
+        return view('buyer.index');
+    }
+    public function inquiry()
+    {
+        return view('buyer.index');
     }
     public function messages()
     {
-        return view('buyer.dashboard');
+        return view('buyer.index');
     }
     public function accountSettings()
     {
-        return view('buyer.dashboard');
+        return view('buyer.index');
     }
 }

@@ -56,7 +56,7 @@ class SellerController extends Controller
     }
     public function getInquiries()
     {   
-        $inquiries = Inquiry::where('to', '=', auth()->id() )->with('from')->paginate(10);
+        $inquiries = Inquiry::where('to_id', '=', auth()->id() )->with('from')->paginate(10);
         return response()->json([
             'inquiries' => $inquiries,
             'message' => 'Inquiries have been fetched'

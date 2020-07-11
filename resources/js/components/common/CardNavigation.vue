@@ -25,7 +25,7 @@
     </div>
     <div class="col-sm-6 col-md-3 mb-4">
       <div @click="goTo('inquiries')" class="shadow-sm px-3 py-4 bg-white rounded pointer">
-        <h6 class="text-uppercase mb-0">Inquiries</h6>
+        <h6 class="text-uppercase mb-0" v-html="user.role == 4 ? 'Inquiries' : 'Leads'"></h6>
       </div>
     </div>
     <div class="col-sm-6 col-md-3 mb-4">

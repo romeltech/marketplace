@@ -13,4 +13,8 @@ class Inquiry extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function to()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
