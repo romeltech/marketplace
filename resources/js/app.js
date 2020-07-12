@@ -31,8 +31,10 @@ const router = new VueRouter({
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('card-navigation', require('./components/common/CardNavigation.vue').default);
 Vue.component('Toast', require('./components/common/Toast.vue').default);
+Vue.component('Alert', require('./components/common/Alert.vue').default);
 
 Vue.component('inquiry-form', require('./components/inquiries/InquiryForm.vue').default);
+Vue.component('contact-form', require('./components/common/ContactForm.vue').default);
 Vue.component('place-order', require('./components/common/PlaceOrder.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -63,7 +63,7 @@
                 </div>
             </nav>
         </header>
-        <main class="py-4" style="min-height:85vh;">
+        <main class="py-5" style="min-height:85vh;">
             @yield('content')
         </main>
         <footer class="bg-dark p-3">

@@ -62,3 +62,11 @@ Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
     Route::get('/get-lead/{id}', 'SellerController@getLead')->name('get-lead-by-id');
     Route::get('/read-lead/{id}', 'SellerController@readLead')->name('update-read');
 });
+
+
+/**
+ * Messages
+ */
+Route::group(['prefix'=>'message','as'=>'message.'], function(){
+    Route::post('/send', 'MessagesController@store');
+});
