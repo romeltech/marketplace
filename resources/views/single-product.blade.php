@@ -22,6 +22,9 @@
                     <p>{{ $product->description }}</p>
                     <p>{{ $product->user->name }}</p>
                     <p>{{ $product->user->email }}</p>
+                    <div>
+                        <place-order :product="{{$product}}" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,7 +59,6 @@
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
                                 autocomplete="current-password">
-
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
