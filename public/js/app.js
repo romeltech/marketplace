@@ -1998,6 +1998,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2079,6 +2080,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     user: Object,
@@ -2094,6 +2103,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    back: function back() {
+      console.log("back");
+    },
     userInitial: function userInitial() {
       var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
       return name.charAt(0);
@@ -63228,62 +63240,67 @@ var render = function() {
       _c("card-navigation", { attrs: { user: _vm.user } }),
       _vm._v(" "),
       _c("div", [
-        _c(
-          "div",
-          {
-            staticClass: "card border-light mb-3 shadow-sm",
-            staticStyle: { "max-width": "100%" }
-          },
-          [
-            _c("div", { staticClass: "card-body" }, [
-              _c("h4", [_vm._v("INQUIRIES")]),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c("table", { staticClass: "table border" }, [
-                _c(
-                  "tbody",
-                  _vm._l(_vm.inquiries, function(inquiry) {
-                    return _c(
-                      "tr",
-                      {
-                        key: inquiry.id,
-                        staticClass: "pointer font-weight-normal",
-                        on: {
-                          click: function($event) {
-                            return _vm.openInquiry(inquiry.id)
-                          }
+        _c("div", { staticClass: "card border-light shadow-sm" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("table", { staticClass: "table border" }, [
+              _c(
+                "tbody",
+                _vm._l(_vm.inquiries, function(inquiry) {
+                  return _c(
+                    "tr",
+                    {
+                      key: inquiry.id,
+                      staticClass: "pointer font-weight-normal",
+                      on: {
+                        click: function($event) {
+                          return _vm.openInquiry(inquiry.id)
                         }
-                      },
-                      [
-                        _c("td", { attrs: { width: "30%" } }, [
-                          _vm._v(_vm._s(inquiry.to.name))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { attrs: { width: "45%" } }, [
-                          _vm._v(
-                            _vm._s(JSON.parse(inquiry.product_details).title)
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "w-25 text-right" }, [
-                          _vm._v(_vm._s(_vm.formatDate(inquiry.created_at)))
-                        ])
-                      ]
-                    )
-                  }),
-                  0
-                )
-              ])
+                      }
+                    },
+                    [
+                      _c("td", { attrs: { width: "30%" } }, [
+                        _vm._v(_vm._s(inquiry.to.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { attrs: { width: "45%" } }, [
+                        _vm._v(
+                          _vm._s(JSON.parse(inquiry.product_details).title)
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "w-25 text-right" }, [
+                        _vm._v(_vm._s(_vm.formatDate(inquiry.created_at)))
+                      ])
+                    ]
+                  )
+                }),
+                0
+              )
             ])
-          ]
-        )
+          ])
+        ])
       ])
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "card-header bg-white d-flex justify-content-start align-items-center"
+      },
+      [_c("h4", { staticClass: "py-2 m-0" }, [_vm._v("INQUIRIES")])]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -63317,9 +63334,33 @@ var render = function() {
             "div",
             {
               staticClass:
-                "card-header bg-light d-flex justify-content-start align-items-center"
+                "card-header bg-white d-flex justify-content-start align-items-center"
             },
             [
+              _c("h4", { staticClass: "py-2 m-0" }, [_vm._v("INQUIRY")]),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.$router.go(-1)
+                    }
+                  }
+                },
+                [
+                  _c("i", {
+                    staticClass:
+                      "mdi mdi-undo-variant ml-2 pointer text-primary",
+                    staticStyle: { "font-size": "16px" }
+                  })
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "d-flex align-items-center mb-3" }, [
               _c(
                 "div",
                 {
@@ -63336,48 +63377,52 @@ var render = function() {
               _vm._v(" "),
               _c("h5", { staticClass: "mb-0 ml-3" }, [
                 _vm._v(
-                  "\n          " + _vm._s(_vm.toUser.name) + "\n          "
+                  "\n            " + _vm._s(_vm.toUser.name) + "\n            "
                 ),
                 _c("br"),
                 _vm._v(" "),
                 _c("small", [
                   _vm._v(
-                    "\n            " +
+                    "\n              " +
                       _vm._s(_vm.toUser.email) +
-                      " |\n            " +
+                      " -\n              " +
                       _vm._s(_vm.toUser.phone) +
-                      "\n          "
+                      "\n            "
                   )
                 ])
               ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(_vm._s(_vm.message))
             ]),
-            _vm._v(" "),
-            _vm._m(0),
             _vm._v(" "),
             _c(
               "div",
-              {
-                staticClass: "shadow-sm rounded p-3 mb-3",
-                staticStyle: { "max-width": "18rem" }
-              },
+              { staticClass: "card-text card-text p-3 bg-light rounded" },
               [
-                _c("h5", [_vm._v(_vm._s(_vm.productDetails.title))]),
+                _c("p", [_vm._v(_vm._s(_vm.message))]),
                 _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v(_vm._s(_vm.productDetails.description))
-                ])
+                _c("hr"),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "shadow-sm rounded p-3 bg-white",
+                    staticStyle: { "max-width": "18rem" }
+                  },
+                  [
+                    _c("h5", { staticClass: "mb-0" }, [
+                      _vm._v(_vm._s(_vm.productDetails.title))
+                    ])
+                  ]
+                )
               ]
             ),
             _vm._v(" "),
-            _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-              _vm._v("Message " + _vm._s(_vm.toUser.name))
-            ])
+            _c(
+              "a",
+              { staticClass: "btn btn-primary mt-3", attrs: { href: "#" } },
+              [_vm._v("Message " + _vm._s(_vm.toUser.name))]
+            )
           ])
         ])
       ])

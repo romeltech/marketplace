@@ -3,30 +3,38 @@
     <card-navigation :user="user" />
     <div>
       <div class="card border-light shadow-sm">
-        <div class="card-header bg-light d-flex justify-content-start align-items-center">
-          <div
-            class="rounded-circle text-white bg-success d-flex justify-content-center align-items-center text-uppercase"
-            style="width:50px;height:50px;font-size:24px;"
-          >{{userInitial(toUser.name)}}</div>
-          <h5 class="mb-0 ml-3">
-            {{toUser.name}}
-            <br />
-            <small>
-              {{toUser.email}} |
-              {{toUser.phone}}
-            </small>
-          </h5>
+        <div class="card-header bg-white d-flex justify-content-start align-items-center">
+          <h4 class="py-2 m-0">INQUIRY</h4>
+          <span @click="$router.go(-1)">
+            <i class="mdi mdi-undo-variant ml-2 pointer text-primary" style="font-size:16px;"></i>
+          </span>
         </div>
         <div class="card-body">
-          <p class="card-text">{{ message }}</p>
-          <h5 class="card-title">
-            <small>Inquired for:</small>
-          </h5>
-          <div class="shadow-sm rounded p-3 mb-3" style="max-width: 18rem;">
-            <h5>{{productDetails.title}}</h5>
-            <p class="card-text">{{ productDetails.description }}</p>
+          <div class="d-flex align-items-center mb-3">
+            <div
+              class="rounded-circle text-white bg-success d-flex justify-content-center align-items-center text-uppercase"
+              style="width:50px;height:50px;font-size:24px;"
+            >{{userInitial(toUser.name)}}</div>
+            <h5 class="mb-0 ml-3">
+              {{toUser.name}}
+              <br />
+              <small>
+                {{toUser.email}} -
+                {{toUser.phone}}
+              </small>
+            </h5>
           </div>
-          <a href="#" class="btn btn-primary">Message {{toUser.name}}</a>
+          <div class="card-text card-text p-3 bg-light rounded">
+            <p>{{ message }}</p>
+            <hr />
+            <h5 class="card-title">
+              <small>Inquired for:</small>
+            </h5>
+            <div class="shadow-sm rounded p-3 bg-white" style="max-width: 18rem;">
+              <h5 class="mb-0">{{productDetails.title}}</h5>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary mt-3">Message {{toUser.name}}</a>
         </div>
       </div>
     </div>
@@ -48,6 +56,9 @@ export default {
     };
   },
   methods: {
+    back() {
+      console.log("back");
+    },
     userInitial(name = "") {
       return name.charAt(0);
     },

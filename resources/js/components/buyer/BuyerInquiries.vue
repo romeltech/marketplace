@@ -2,10 +2,11 @@
   <div class="container">
     <card-navigation :user="user" />
     <div>
-      <div class="card border-light mb-3 shadow-sm" style="max-width: 100%;">
+      <div class="card border-light shadow-sm">
+        <div class="card-header bg-white d-flex justify-content-start align-items-center">
+          <h4 class="py-2 m-0">INQUIRIES</h4>
+        </div>
         <div class="card-body">
-          <h4>INQUIRIES</h4>
-          <hr />
           <table class="table border">
             <tbody>
               <tr

@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
         $user->save();
         $user = new \App\User([
             'name'     => 'Buyer Account',
-            'email'    => 'test@test.com',
+            'email'    => 'buyer@buyer.com',
             'password' => Hash::make('123456789'),
             'phone'    => '05012345678',
             'role'     => 4
