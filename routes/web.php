@@ -39,8 +39,6 @@ Route::group(['prefix'=>'buyer','as'=>'buyer.'], function(){
     Route::get('/account-settings', 'BuyerController@accountSettings')->name('account-settings');
 });
 
-
-
 Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
     // Pages
     Route::get('/', 'SellerController@dashboard')->name('dashboard');
@@ -69,4 +67,11 @@ Route::group(['prefix'=>'seller','as'=>'seller.'], function(){
  */
 Route::group(['prefix'=>'message','as'=>'message.'], function(){
     Route::post('/send', 'MessagesController@store');
+});
+
+/**
+ * Admin - SPA
+ */
+Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
+    Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 });

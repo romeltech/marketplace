@@ -12,9 +12,13 @@
 <li class="nav-item dropdown">
     <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="javascript:void(0)" role="button"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-        {{ Auth::user()->name }} <span class="caret"></span>
+        <?php $name = explode(" ", Auth::user()->name); ?>
+        {{ $name[0].' '.$name[1] }} <span class="caret"></span>
     </a>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <user-avatar :user="{{Auth::user()}}"></user-avatar>
+        @if (Auth::user()->userRoles() != 'admin')
+        <hr class="my-1">
         <a class="dropdown-item" href="{{ route(Auth::user()->userRoles().'.dashboard') }}">{{ __('Dashboard') }}</a>
         <a class="dropdown-item" href="{{ route(Auth::user()->userRoles().'.orders') }}">{{ __('Orders') }}</a>
         @if (Auth::user()->role == 4)
@@ -24,7 +28,8 @@
         <a class="dropdown-item" href="{{ route(Auth::user()->userRoles().'.leads') }}">{{ __('Leads') }}</a>
         @endif
         <a class="dropdown-item" href="{{ route(Auth::user()->userRoles().'.messages') }}">{{ __('Messages') }}</a>
-        <hr style="margin-bottom: .5rem;">
+        @endif
+        <hr class="my-1">
         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
             {{ __('Logout') }}
