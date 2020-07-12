@@ -22,10 +22,26 @@ class UsersTableSeeder extends Seeder
     {
         $user = new \App\User([
             'name'     => 'Romel Indemne',
-            'email'    => 'admin@admin.com',
+            'email'    => 'super@super.com',
             'password' => Hash::make('123456789'),
             'phone'    => '05012345678',
             'role'     => 1
+        ]);
+        $user->save();
+        $user = new \App\User([
+            'name'     => 'Admin Account',
+            'email'    => 'admin@admin.com',
+            'password' => Hash::make('123456789'),
+            'phone'    => '05012345678',
+            'role'     => 2
+        ]);
+        $user->save();
+        $user = new \App\User([
+            'name'     => 'Editor Account',
+            'email'    => 'editor@editor.com',
+            'password' => Hash::make('123456789'),
+            'phone'    => '05012345678',
+            'role'     => 3
         ]);
         $user->save();
         $user = new \App\User([
