@@ -1952,9 +1952,6 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     user: Object,
     "default": null
-  },
-  mounted: function mounted() {
-    console.log(this.user);
   }
 });
 
@@ -63494,7 +63491,8 @@ var render = function() {
     { staticClass: "container" },
     [
       _c("card-navigation", { attrs: { user: _vm.user } }),
-      _vm._v("\n  this is buyer's dashboard\n")
+      _vm._v(" "),
+      _c("div", [_vm._v("this is buyer's dashboard")])
     ],
     1
   )
