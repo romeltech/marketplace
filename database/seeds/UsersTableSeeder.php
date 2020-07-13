@@ -53,8 +53,24 @@ class UsersTableSeeder extends Seeder
         ]);
         $user->save();
         $user = new \App\User([
+            'name'     => 'Buyer 2 Account',
+            'email'    => 'buyer2@buyer.com',
+            'password' => Hash::make('123456789'),
+            'phone'    => '05012345678',
+            'role'     => 4
+        ]);
+        $user->save();
+        $user = new \App\User([
             'name'     => 'Seller Account',
             'email'    => 'seller@seller.com',
+            'password' => Hash::make('123456789'),
+            'phone'    => '05012345678',
+            'role'     => 5
+        ]);
+        $user->save();
+        $user = new \App\User([
+            'name'     => 'Seller 2 Account',
+            'email'    => 'seller2@seller.com',
             'password' => Hash::make('123456789'),
             'phone'    => '05012345678',
             'role'     => 5
