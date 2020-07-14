@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="pt-4 mb-3">
+    <div class="pt-5 mb-3">
       <h1 class="h4">Dashboard</h1>
     </div>
     <div class="my-3 p-3 bg-white rounded shadow-sm">

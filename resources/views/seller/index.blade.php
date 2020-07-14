@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <router-view :user="{{ Auth::user() }}"></router-view>
+    <router-view :user="{{ Auth::user() }}" :user-role="'{{Auth::user()->userRole()}}'"></router-view>
 
 @endsection

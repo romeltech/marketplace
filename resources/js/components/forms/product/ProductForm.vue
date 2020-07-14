@@ -1,21 +1,21 @@
 <template>
-  <div class="col-12 pb-3">
+  <div>
     <form>
-      <div class="shadow-sm bg-white rounded">
-        <div class="d-flex align-items-center justify-content-between pt-3 px-3 pb-0" style="height:60px;">
-          <h4 class="mb-0">Create Product</h4>
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">Product Form</h6>
+        <div class="action">
           <div v-if="loading == false">
-            <button type="button" class="btn btn-light ml-2" @click="save('draft')">Save as Draft</button>
+            <button type="button" class="btn btn-sm btn-light ml-2" @click="save('draft')">Save as Draft</button>
             <button
               v-if="this.$route.params.id"
               type="button"
-              class="btn btn-primary ml-2"
+              class="btn btn-sm btn-primary ml-2"
               @click="save('update')"
             >Update</button>
             <button
               v-else
               type="button"
-              class="btn btn-primary ml-2"
+              class="btn btn-sm btn-primary ml-2"
               @click="save('publish')"
             >Publish</button>
           </div>
@@ -26,35 +26,33 @@
             <span>Loading...</span>
           </div>
         </div>
-        <hr />
-        <div class="col-md-8 pb-3">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <ValidationProvider :rules="{ regex: /^[a-zA-Z0-9 -]+$/ }" mode="eager">
-              <div slot-scope="{ errors }">
-                <input
-                  v-model="product.title"
-                  :class="`form-control ${ errors[0] ? 'is-invalid' : ''}`"
-                  id="title"
-                />
-                <span v-if="errors" class="text-danger">{{ errors[0] }}</span>
-              </div>
-            </ValidationProvider>
+      </div>
+      <hr />
+      <div class="form-group">
+        <label for="title">Title</label>
+        <ValidationProvider :rules="{ regex: /^[a-zA-Z0-9 -]+$/ }" mode="eager">
+          <div slot-scope="{ errors }">
+            <input
+              v-model="product.title"
+              :class="`form-control ${ errors[0] ? 'is-invalid' : ''}`"
+              id="title"
+            />
+            <span v-if="errors" class="text-danger">{{ errors[0] }}</span>
           </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <ValidationProvider rules="required|max:500" mode="eager">
-              <div slot-scope="{ errors }">
-                <textarea
-                  v-model="product.description"
-                  :class="`form-control ${ errors[0] ? 'is-invalid' : ''}`"
-                  id="description"
-                />
-                <span v-if="errors" class="text-danger">{{ errors[0] }}</span>
-              </div>
-            </ValidationProvider>
+        </ValidationProvider>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <ValidationProvider rules="required|max:500" mode="eager">
+          <div slot-scope="{ errors }">
+            <textarea
+              v-model="product.description"
+              :class="`form-control ${ errors[0] ? 'is-invalid' : ''}`"
+              id="description"
+            />
+            <span v-if="errors" class="text-danger">{{ errors[0] }}</span>
           </div>
-        </div>
+        </ValidationProvider>
       </div>
     </form>
     <Toast :status="toastData.status" :message="toastData.message" :type="toastData.type" />

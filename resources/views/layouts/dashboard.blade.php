@@ -21,32 +21,20 @@
 
 <body>
     <div id="app">
-        <header>
-            <nav class="top-nav navbar navbar-dark bg-dark py-0">
-                <div class="container">
-                    <a class="navbar-brand px-3" href="{{ url('/') }}">
-                        MARKETPLACE
-                        {{-- <img src="https://aboudcrm.com/store/wp-content/uploads/2020/04/olive-country.png"
-                            alt="Olive Country" width="100"> --}}
-                    </a>
-                    <ul class="nav ml-auto justify-content-end">
-                        @include('layouts.topnav')
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <main class="py-4" style="min-height:85vh;">
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="{{ url('/') }}">MARKETPLACE</a>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+                data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="nav ml-auto justify-content-end">
+                @include('layouts.topnav')
+            </ul>
+        </nav>
+        <div class="container-fluid">
             @yield('content')
-        </main>
-        <footer class="bg-dark p-3">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <span class="text-white">
-                        Copyright 2020 @ MARKETPLACE
-                    </span>
-                </div>
-            </div>
-        </footer>
+        </div>
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
