@@ -10,11 +10,35 @@ class UserPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can Access Admin Modules.
+     * Determine whether the user can Access a Module.
      */
+    public function accessSuper(User $user)
+    {
+        return $user->role == 1;
+    }
     public function accessAdmin(User $user)
     {
-        return $user->role < 3;
+        return $user->role == 2;
+    }
+    public function accessEditor(User $user)
+    {
+        return $user->role == 3;
+    }
+    public function accessBuyer(User $user)
+    {
+        return $user->role == 4;
+    }
+    public function accessSeller(User $user)
+    {
+        return $user->role == 5;
+    }
+    public function accessBoth(User $user)
+    {
+        return $user->role == 6;
+    }
+    public function accessDelivery(User $user)
+    {
+        return $user->role == 7;
     }
 
     /**
