@@ -15,19 +15,19 @@
         <?php $name = explode(" ", Auth::user()->name); ?>
         {{ $name[0].' '.$name[1] }} <span class="caret"></span>
     </a>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+    <div class="dropdown-menu dropdown-menu-right mr-3" aria-labelledby="navbarDropdown">
         <user-avatar :user="{{Auth::user()}}"></user-avatar>
-        @if (Auth::user()->userRoles() != 'admin')
+        @if (Auth::user()->userRole() != 'admin')
         <hr class="my-1">
-        <a class="dropdown-item" href="{{ route(Auth::user()->userRoles().'.dashboard') }}">{{ __('Dashboard') }}</a>
-        <a class="dropdown-item" href="{{ route(Auth::user()->userRoles().'.orders') }}">{{ __('Orders') }}</a>
+        <a class="dropdown-item" href="{{ route(Auth::user()->userRole().'.dashboard') }}">{{ __('Dashboard') }}</a>
+        <a class="dropdown-item" href="{{ route(Auth::user()->userRole().'.orders') }}">{{ __('Orders') }}</a>
         @if (Auth::user()->role == 4)
-        <a class="dropdown-item" href="{{ route(Auth::user()->userRoles().'.inquiries') }}">{{ __('Inquiries') }}</a>
+        <a class="dropdown-item" href="{{ route(Auth::user()->userRole().'.inquiries') }}">{{ __('Inquiries') }}</a>
         @endif
         @if (Auth::user()->role == 5)
-        <a class="dropdown-item" href="{{ route(Auth::user()->userRoles().'.leads') }}">{{ __('Leads') }}</a>
+        <a class="dropdown-item" href="{{ route(Auth::user()->userRole().'.leads') }}">{{ __('Leads') }}</a>
         @endif
-        <a class="dropdown-item" href="{{ route(Auth::user()->userRoles().'.messages') }}">{{ __('Messages') }}</a>
+        <a class="dropdown-item" href="{{ route(Auth::user()->userRole().'.messages') }}">{{ __('Messages') }}</a>
         @endif
         <hr class="my-1">
         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

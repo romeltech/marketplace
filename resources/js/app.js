@@ -30,6 +30,7 @@ const router = new VueRouter({
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('card-navigation', require('./components/common/CardNavigation.vue').default);
+Vue.component('side-navigation', require('./components/common/SideNavigation.vue').default);
 Vue.component('Toast', require('./components/common/Toast.vue').default);
 Vue.component('Alert', require('./components/common/Alert.vue').default);
 Vue.component('user-avatar', require('./components/common/Avatar.vue').default);

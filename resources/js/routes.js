@@ -12,6 +12,11 @@ import BuyerDashboard from "./components/buyer/BuyerDashboard";
 import BuyerInquiries from "./components/buyer/BuyerInquiries";
 import BuyerInquiry from "./components/buyer/BuyerInquiry";
 
+// Admin's Routes
+import AdminDashboard from "./components/admin/AdminDashboard";
+import AdminMessages from "./components/admin/AdminMessages";
+import AdminMessage from "./components/admin/AdminMessage";
+
 export const routes = [
     /**
      * Seller
@@ -97,6 +102,26 @@ export const routes = [
         name: "BuyerInquiry",
         component: BuyerInquiry,
         props: true
+    },
+
+    /**
+     * Admin
+     */
+    {
+        path: "/admin/dashboard",
+        name: "AdminDashboard",
+        component: AdminDashboard,
+        props: true
+    },
+    {
+        path: "/admin/messages",
+        name: "AdminMessages",
+        component: AdminMessages,
+    },
+    {
+        path: "/admin/message/:id",
+        name: "AdminMessage",
+        component: AdminMessage,
     },
 
 ];

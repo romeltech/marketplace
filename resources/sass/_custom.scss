@@ -1,5 +1,10 @@
 .pointer {
     cursor: pointer;
+    opacity: .85;
+    transition: .1s ease-out;
+    &:hover{
+        opacity: 1;
+    }
 }
 .table th, .table td{
     vertical-align: middle !important;

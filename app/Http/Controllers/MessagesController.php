@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class MessagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,9 +18,36 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        //
+        # code...
     }
 
+    public function readMessage($id)
+    {
+        $msg = Message::where('id', '=', $id)->first();
+        $msg->update(
+            ['read' => 1]
+        );
+        return response()->json([
+            'msg' => $msg,
+            'message' => 'Message has been read'
+        ], 200);
+    }
+    public function getMessages()
+    {
+        $messages = Message::paginate(10);
+        return response()->json([
+            'messages' => $messages,
+            'message' => 'Messages have been fetched'
+        ], 200);
+    }
+    public function getMessage($id)
+    {   
+        $msg = Message::where('id', '=', $id)->first();
+        return response()->json([
+            'msg' => $msg,
+            'message' => 'Message has been fetched'
+        ], 200);
+    }
     /**
      * Show the form for creating a new resource.
      *

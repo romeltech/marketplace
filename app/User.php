@@ -49,8 +49,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Inquiry::class);
     }
-
-    public function userRoles()
+    // public function userRole()
+    // {
+    //       return [
+    //         1 => 'super',
+    //         2 => 'admin',
+    //         3 => 'editor',
+    //         4 => 'buyer',
+    //         5 => 'seller',
+    //         6 => 'both',
+    //         7 => 'delivery',
+    //     ];
+    // }
+    public function userRole()
     {
         if (Auth::check()){
             if(Auth::user()->role == 1){

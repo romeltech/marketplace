@@ -74,4 +74,9 @@ Route::group(['prefix'=>'message','as'=>'message.'], function(){
  */
 Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
+    Route::get('/messages', 'AdminController@index')->name('messages');
+    Route::get('/message/{id}', 'AdminController@index')->name('messages');
+    Route::get('/get-messages', 'MessagesController@getMessages')->name('get-messages');
+    Route::get('/get-message/{id}', 'MessagesController@getMessage')->name('get-message-by-id');
+    Route::get('/read-message/{id}', 'MessagesController@readMessage')->name('read-messages');
 });
