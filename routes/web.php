@@ -72,7 +72,7 @@ Route::group(['prefix'=>'message','as'=>'message.'], function(){
 /**
  * Admin - SPA
  */
-Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
+Route::group(['middleware' => 'can:accessAdmin, App\User','prefix'=>'admin','as'=>'admin.'], function(){
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
     Route::get('/messages', 'AdminController@index')->name('messages');
     Route::get('/message/{id}', 'AdminController@index')->name('messages');
